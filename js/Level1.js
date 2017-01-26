@@ -9,11 +9,11 @@ var Level1 = {
     game.add.tileSprite(0, 0, 1920, 1920, 'background');
     game.world.setBounds(0, 0, 1920, 1920);
 
-    turtle = new Turtle(80, 60, game, 'turtle', content);
-    NpcTest = new NPC(200, 100, game, 'kiwi', npctalk);
+    TA.level1.turtle = new Turtle(80, 60, game, 'turtle', content);
+    TA.level1.fakeKiwi = new NPC(200, 100, game, 'kiwi', npctalk);
 
-    //testSprite = game.add.sprite(game.world.centerX/2, game.world.centerY/2 + 300, 'npc');
-    testSprite = new NPC(game.world.centerX/2, game.world.centerY/2 + 300,game, 'npc', sonictalk);
+    //TA.level1.npc = game.add.sprite(game.world.centerX/2, game.world.centerY/2 + 300, 'npc');
+    TA.level1.npc = new NPC(game.world.centerX/2, game.world.centerY/2 + 300,game, 'npc', sonictalk);
 
 
     if(startingGame){
@@ -26,8 +26,8 @@ var Level1 = {
 
 
     game.physics.startSystem(Phaser.Physics.ARCADE);
-    game.physics.enable([player, turtle], Phaser.Physics.ARCADE);
-    turtle.body.immovable = true;
+    game.physics.enable([player, TA.level1.turtle], Phaser.Physics.ARCADE);
+    TA.level1turtle.body.immovable = true;
     player.fixedRotation = true;
 
     wallGroup = game.add.physicsGroup();
@@ -39,11 +39,11 @@ var Level1 = {
     introText = new Textbox(game.camera.width / 2, game.camera.height / 2, intro);
 
 
-    if(!foundPerson){
-      turtle.visible = false;
+    if(!TA.level1.foundPerson){
+      TA.level1.turtle.visible = false;
     }
     else{
-      turtle.visible = true;
+      TA.level1.turtle.visible = true;
     }
 
 
@@ -128,12 +128,12 @@ var Level1 = {
     player.body.velocity.setTo(0, 0);
     player.body.angularVelocity = 0;
 
-    game.physics.arcade.collide(player, testSprite, collidePerson, null, this);
-    game.physics.arcade.collide(player, turtle, this.stateChangeCollision, null, this);
+    game.physics.arcade.collide(player, TA.level1.npc, collidePerson, null, this);
+    game.physics.arcade.collide(player, TA.level1.turtle, this.stateChangeCollision, null, this);
     game.physics.arcade.collide(player, wallGroup, wallCollision, null, this);
-    game.physics.arcade.collide(player, NpcTest, npcCollision, null, this);
+    game.physics.arcade.collide(player, TA.level1.fakeKiwi, npcCollision, null, this);
 
-    if(createDiaFlag == false){// if text box not up, move //createTextFlag == false ||
+    if(TA.createDiaFlag == false){// if text box not up, move //createTextFlag == false ||
       if (game.input.activePointer.isDown)
       {
         //  400 is the speed it will move towards the touch
@@ -149,7 +149,7 @@ var Level1 = {
       {
         player.body.velocity.setTo(0, 0);
       }
-    }else if(createDiaFlag == true){
+    }else if(TA.createDiaFlag == true){
 
       if(game.input.activePointer.isDown){
         console.log('hallowe');

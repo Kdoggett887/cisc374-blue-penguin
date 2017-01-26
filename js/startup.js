@@ -2,7 +2,7 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example');
 
 
 //declare Game object and other globals
-var TurtleAdventure = new function(){
+var TA = new function(){
   this.createTextFlag = false;
   this.createDiaFlag = false;
   this.playerX;
@@ -11,10 +11,19 @@ var TurtleAdventure = new function(){
   this.foundPerson = false;
   this.solvedTurtle = false;
 
-  this.Level1 = new function() {
+  this.level1 = new function() {
     this.foundPerson = false;
     this.solvedTurtle = false;
     this.compltetedPuzzle1 = false;
+    this.turtle;
+    this.npc;
+    this.fakeKiwi;
+
+    this.reset = function() {
+      this.foundPerson = false;
+      this.solvedTurtle = false;
+      this.completedPuzzle = false;
+    }
   }
 
 }
