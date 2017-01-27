@@ -29,6 +29,7 @@ function filterClass(game, imageKey, shaders) {
     for (var i=0; i < this.shaders.length; i++){
       this.filters[i] = new Phaser.Filter(game, null, this.shaders[i][0]);
       this.filters[i].name = this.shaders[i][1];
+      //this.filters[i].passes = this.shaders[i][2];
     }
   }
 
@@ -101,6 +102,9 @@ function filterClass(game, imageKey, shaders) {
         filterImage.scale.setTo(0.5, 0.5);
         filterImage.x = cameraTopX + game.camera.width - filterImage.width;
 
+      
+      //right now this applies all filters in the list to the filtered image
+      //later you might want to only apply 1 or 2 or some other combo so the player has to choose amongst the options
       for (var i=0; i < filters.length; i++){
         pushFilter(filterImage, filters[i]);
       }
@@ -133,7 +137,7 @@ function filterClass(game, imageKey, shaders) {
     //default callback for FilterButtons
     function filterOnClick(){
         // applyFilter(cleanImage, this.filter);
-        pushFilter(cleanImage, this.filter);
+        pushFilter(cleanImage, this.filter);//add the buttons filter
         this.button.frame = this.button.frame == 2 ? 0 : 2;
     }
 
@@ -145,7 +149,11 @@ function filterClass(game, imageKey, shaders) {
     function completeFilter() {
         if (compareImages(cleanImage, filterImage)) {
             completedPuzzle1 = true;
+          console.log("u win");
             game.state.start("GameOver");
+        }
+        else{
+          console.log("Images different...try again");
         }
     }
 
