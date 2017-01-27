@@ -186,7 +186,15 @@ function filterClass(game, imageKey, shaders) {
 
             console.log("u win");
             TA.currentTurtle = null;
-            game.state.start("Level1");
+
+          var nextLevel = TA.currentLevel + 1;
+          var nextLevelName = "Level" + nextLevel;
+          if(nextLevel <= 3){
+            game.state.start(nextLevelName);
+          }
+          else{
+            game.state.start("GameOver");
+          }
 
         }
         else{

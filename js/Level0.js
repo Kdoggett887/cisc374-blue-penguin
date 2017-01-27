@@ -9,17 +9,17 @@ var Level0 = {
     // Setup World
     game.add.tileSprite(0, 0, 1920, 1920, 'background');
     game.world.setBounds(0, 0, 1920, 1920);
+    TA.currentLevel = 0;
 
     // Setup NPCs
-    TA.level0.turtle = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 600, game, 'turtle', [[blurShader, "BLUR",2], [arithmeticAddShader,"ADD",1], [grayscaleShader, "GRAYSCALE",1]]); 
     TA.level0.fakeKiwi = new NPC(200, 100, game, 'kiwi', npctalk);
     TA.level0.npc = new NPC(game.world.centerX/2 + 200, game.world.centerY/2 + 900,game, 'npc', sonictalk);
-    
 
-    // Setup Player
+    // Setup Player/Turtles
     if(TA.level0.startingLevel){
-      TA.level0.startingLevel = false;
+      TA.level0.turtle = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 600, game, 'turtle', [[blurShader, "BLUR", 1],[grayscaleShader, "GRAYSCALE", 1], [arithmeticAddShader,"ADD", 0]]);
       player = game.add.sprite(game.world.centerX, game.world._height - 200, 'kiwi');
+      TA.level0.startingLevel = false;
     }
     else{
       //if persisting data put it in here
