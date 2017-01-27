@@ -123,7 +123,7 @@ var TA = new function(){
     }
     else if (this.currentLevel == 1) {
       console.log("level1");
-      if (this.turtleCount == 3) {
+      if (this.turtleCount == 1) {
         this.turtleCount = 0;
         return 2;
       }
@@ -132,11 +132,12 @@ var TA = new function(){
       }
     }
     else if (this.currentLevel == 2) {
-      if (this.turtleCount == 4) {
+      if (this.turtleCount == 1) {
         return 3;
       }
       else {
         return 2;
+        console.log('ELSE REGURN #');
       }
     }
     console.log("end");

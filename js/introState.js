@@ -28,7 +28,7 @@ var introState = {
     solvedTurtle = false;
     completedPuzzle1 = false;
     foundPerson = false;
-    game.state.start("Level1");
+    game.state.start("Level0");
 
   },
 
