@@ -16,7 +16,7 @@ var imageState = {
   },
 
   update: function(){
-    this.puzzle.checkSliderPosition(null);
+    //this.puzzle.checkSliderPosition(null);
   },
 
   toGame: function(){

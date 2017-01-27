@@ -16,8 +16,8 @@ var introState = {
     introSlideText = game.add.text(game.camera.width/2 - 50, game.camera.height/2 - 50, intro,{font: "25px Arial", fill: "#ffffff", wordWrap: true, wordWrapWidth: 700, align: "left"} );
     introSlideText.anchor.set(0.5);
     //this.textBoxLength = intro.length;
-    
-    
+
+
     var flashbackKiwi = game.add.sprite(game.width-250, game.height-250, 'BWkiwi');
 
   },
@@ -28,7 +28,7 @@ var introState = {
     solvedTurtle = false;
     completedPuzzle1 = false;
     foundPerson = false;
-    game.state.start("Level3");
+    game.state.start("Level1");
 
   },
 
