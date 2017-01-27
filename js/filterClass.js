@@ -8,6 +8,7 @@ function filterClass(game, imageKey, shaders) {
     var filterImage = null;
     this.filters = [];
     this.shaders = shaders;
+    var slideButton;
 
     var cameraTopX = game.camera.x + (game.width/2) - (game.camera.width/2);
     var cameraTopY = game.camera.y + (game.height/2) - (game.camera.height/2);
@@ -66,7 +67,16 @@ function filterClass(game, imageKey, shaders) {
   }
 
   this.setupSlider = function(){
-    var slideButton = game.add.sprite(50, 300, 'slider');
+    slideButton = game.add.sprite(50, 300, 'slider');
+
+    slideButton.inputEnabled = true;
+    slideButton.input.enableDrag();
+    slideButton.input.allowVerticalDrag = false;
+
+    bounds = new Phaser.Rectangle(50, 300, 300, 100);
+
+    slideButton.input.boundsRect = bounds;
+
   }
 
 
@@ -102,7 +112,7 @@ function filterClass(game, imageKey, shaders) {
         filterImage.scale.setTo(0.5, 0.5);
         filterImage.x = cameraTopX + game.camera.width - filterImage.width;
 
-      
+
       //right now this applies all filters in the list to the filtered image
       //later you might want to only apply 1 or 2 or some other combo so the player has to choose amongst the options
       for (var i=0; i < filters.length; i++){
