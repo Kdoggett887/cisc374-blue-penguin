@@ -21,6 +21,7 @@ var preloadState = {
     game.load.image('wall','images/wall.jpg');
     game.load.image('turtle','images/turtle.png');
     game.load.image('kiwi', 'images/detective_sprite.png');
+    game.load.image('BWkiwi','images/detective_intro.png');
     game.load.image('slider', 'assets/sprites/pepper.png');
     game.load.image('profpixel', 'images/prof_pixelsm.png');
   },

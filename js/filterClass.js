@@ -20,7 +20,7 @@ function filterClass(game, imageKey, shaders) {
       this.makeFilters();
       this.setupImages(game, this.imageKey, this.filters);
       this.setupButtons();
-      this.setupSlider(null, null);
+      //this.setupSlider(null, null);
 
 
     }
