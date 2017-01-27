@@ -57,6 +57,7 @@ var mute_label;
 var wallGroup;
 var turtleText;
 var currentDialogue;
+var dialogueTimer = false;
 
 var puzzle;
 var completedPuzzle1 = false;

@@ -28,17 +28,33 @@ Turtle.prototype.constructor = Turtle;
 //displays an NPC's dialogue
 var sayDialogue = function(person){
   //later, add an overlay that displays text box and sprite for this person
-  
-  if(!currentDialogue){
-    currentDialogue = new DialogueBox(game.camera.width/2, game.camera.height/2, person.dialogue);
-    console.log("made new dialog box");
+  if(dialogueTimer == false){
+    if(!currentDialogue){
+      currentDialogue = new DialogueBox(game.camera.width/2, game.camera.height/2, person.dialogue);
+      console.log("made new dialog box");
+    }
+    else{
+      currentDialogue.content = person.dialogue;
+      //console.log("updated dialog content " + currentDialogue.content);
+    }
+    currentDialogue.createText();
+    dialogueTimer = true;
+    console.log('dialgoe' + dialogueTimer);
+
+
+  }else{// if hit Recently
+    game.time.events.add(Phaser.Timer.SECOND * 4, function(){
+      dialogueTimer = false;
+      console.log('timer' + dialogueTimer);
+    }, this);
   }
-  else{
-    currentDialogue.content = person.dialogue;
-    //console.log("updated dialog content " + currentDialogue.content);
-  }
-  currentDialogue.createText();
 }
+
+
+
+
+
+
 
 //Collision handler for NPCs
 var npcCollision = function(player, npc){
@@ -50,13 +66,13 @@ var npcCollision = function(player, npc){
 NPC = function(x, y, game, sprite, dialogue){
     this.dialogue = dialogue;
     Phaser.Sprite.call(this, game, x, y, sprite);
-    
+
     this.enableBody = true;
     game.add.existing(this);
-    
+
     game.physics.enable([this], Phaser.Physics.ARCADE);
     this.body.immovable = true;
-  
+
 }
 
 NPC.prototype = Object.create(Phaser.Sprite.prototype);

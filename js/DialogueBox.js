@@ -50,6 +50,8 @@ var DialogueBox = function(x, y, messageArray){
     this.text.wordWrap = true;
     this.text.wordWrapWidth = 500;
     this.text.fixedToCamera = true;
+    
+
 
 
     this.nextLine();
