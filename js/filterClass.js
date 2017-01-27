@@ -102,7 +102,7 @@ function filterClass(game, imageKey, shaders) {
         filterImage.scale.setTo(0.5, 0.5);
         filterImage.x = cameraTopX + game.camera.width - filterImage.width;
 
-      
+
       //right now this applies all filters in the list to the filtered image
       //later you might want to only apply 1 or 2 or some other combo so the player has to choose amongst the options
       for (var i=0; i < filters.length; i++){
@@ -156,6 +156,7 @@ function filterClass(game, imageKey, shaders) {
         }
         else{
           console.log("Images different...try again");
+          
         }
     }
 
