@@ -34,29 +34,38 @@ var TA = new function(){
   }
 
   this.level1 = new function() {
-    this.foundPerson = false;
-    this.solvedTurtle = false;
-    this.compltetedPuzzle1 = false;
-    this.turtle;
-    this.npc;
-    this.fakeKiwi;
+    this.startingLevel = true;
+    this.completedPuzzle = false;
 
     this.reset = function() {
-      this.foundPerson = false;
-      this.solvedTurtle = false;
+      this.startingLevel = true;
+      this.completedPuzzle = false;
+    }
+  }
+
+  this.level2 = new function() {
+    this.startingLevel = true;
+    this.completedPuzzle = false;
+
+    this.reset = function() {
+      this.startingLevel = true;
+      this.completedPuzzle = false;
+    }
+  }
+
+  this.level3 = new function() {
+    this.startingLevel = true;
+    this.completedPuzzle = false;
+
+    this.reset = function() {
+      this.startingLevel = true;
       this.completedPuzzle = false;
     }
   }
 
 }
 
-function resetAll() {
-  TA.resetGlobals();
-  TA.level0.reset();
-  TA.level1.reset();
-}
 
-resetAll();
 
 //----------VARIABLES ---------------------//
 var w = 800; // game width
@@ -101,6 +110,12 @@ var dialogueTimer = false;
 var puzzle;
 var completedPuzzle1 = false;
 
+function resetAll() {
+  TA.resetGlobals();
+  TA.level0.reset();
+  TA.level1.reset();
+}
+
 
 function wallCollision (obj1, obj2) {
   //console.log('wall hit');
@@ -121,15 +136,15 @@ function compareImages(firstImage, secondImage){
     console.log("compare images");
     console.log(firstImage);
     console.log(secondImage);
-  
+
     //test for array comparisons
     var arr1 = firstImage.filters;
     var arr2 = secondImage.filters;
-  
+
     if (firstImage.key != secondImage.key){
         return false;
       }
-  
+
     //neither image is filtered
     if (arr1 == null && arr2 == null){
         return true;
@@ -137,31 +152,31 @@ function compareImages(firstImage, secondImage){
     else if (arr1 == null || arr2 == null){
         return false;
       }
-  
+
     if (arr1.length != arr2.length){
         return false;
       }
-  
+
     //if here, we know that they are both arrays so we can sort them
     var nameArr1 = [];
     var nameArr2 = [];
-  
-  
+
+
     for(var i = arr1.length; i--;){
         nameArr1.push(arr1[i].name);
         nameArr2.push(arr2[i].name);
       }
-  
+
     arr1 = nameArr1.sort();
     arr2 = nameArr2.sort();
-  
-  
+
+
     for (var i = arr1.length; i--;) {
         if(arr1[i] != arr2[i]){
             return false;
           }
       }
-  
+
     return true;
 }
 
@@ -181,6 +196,34 @@ function onTap(pointer, doubleTap) {
       currentDialogue.removeText();
       TA.createDiaFlag = false;
     }
+  }
+}
+
+function setupUpdate() {
+  player.body.velocity.setTo(0, 0);
+  player.body.angularVelocity = 0;
+
+  if(TA.createDiaFlag == false){// if text box not up, move //createTextFlag == false ||
+    if (game.input.activePointer.isDown)
+    {
+      //  400 is the speed it will move towards the touch
+      game.physics.arcade.moveToPointer(player, 400);
+
+      //  if it's overlapping the touch, don't move any more
+      if (Phaser.Rectangle.contains(player.body, game.input.x, game.input.y))
+      {
+        player.body.velocity.setTo(0, 0);
+      }
+    }
+    else
+    {
+      player.body.velocity.setTo(0, 0);
+    }
+  }else if(TA.createDiaFlag == true){
+
+    if(game.input.activePointer.isDown){
+    }
+
   }
 }
 
