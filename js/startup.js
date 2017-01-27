@@ -33,6 +33,7 @@ var TA = new function(){
   }
 
   this.level1 = new function() {
+    this.turtleGroup;
     this.startingLevel = true;
     this.completedPuzzle = false;
 

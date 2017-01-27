@@ -184,7 +184,7 @@ function filterClass(game, imageKey, shaders) {
         if (compareImages(cleanImage, filterImage)) {
             completedPuzzle1 = true;
           console.log("u win");
-            game.state.start("GameOver");
+            game.state.start("Level1"); // game over
         }
         else{
           console.log("Images different...try again");
