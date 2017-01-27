@@ -2,8 +2,8 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example');
 
 
 //declare Game object and other globals
-var TA = new function(){
-
+var TurtleAdventure = new function(){
+  this.createTextFlag = false;
   this.createDiaFlag = false;
   this.playerX;
   this.playerY;
@@ -11,52 +11,13 @@ var TA = new function(){
   this.foundPerson = false;
   this.solvedTurtle = false;
 
-  this.resetGlobals = function() {
-    this.createDiaFlag = false;
-    this.startingGame = true;
-    this.foundPerson = false;
-    this.solvedTurtle = false;
-  }
-
-
-
-  this.level0 = new function() {
-    this.turtle;
-    this.fakeKiwi;
-    this.npc;
-    this.completedPuzzle = false;
-    this.startingLevel = true;
-
-    this.reset = function() {
-      this.startingLevel = true;
-      this.completedPuzzle = false;
-    }
-  }
-
-  this.level1 = new function() {
+  this.Level1 = new function() {
     this.foundPerson = false;
     this.solvedTurtle = false;
     this.compltetedPuzzle1 = false;
-    this.turtle;
-    this.npc;
-    this.fakeKiwi;
-
-    this.reset = function() {
-      this.foundPerson = false;
-      this.solvedTurtle = false;
-      this.completedPuzzle = false;
-    }
   }
 
 }
-
-function resetAll() {
-  TA.resetGlobals();
-  TA.level0.reset();
-  TA.level1.reset();
-}
-
-resetAll();
 
 //----------VARIABLES ---------------------//
 var w = 800; // game width
@@ -90,6 +51,7 @@ var inBound;
 var turtle;
 var introText;
 var NpcTest;
+//var incompleteText;
 
 var music;
 var mute_label;
@@ -106,80 +68,68 @@ function wallCollision (obj1, obj2) {
   //console.log('wall hit');
 }
 
-// function collidePerson(obj1, obj2){
-//     if(!foundPerson){
-//         foundPerson = true;
-//         console.log("found sonic!");
-//         // turtle.visible = true;
-//     }
-//   npcCollision(obj1, obj2);
-// }
-
-
-//compare if two images are filtered the same way
-function compareImages(firstImage, secondImage){
-    console.log("compare images");
-    console.log(firstImage);
-    console.log(secondImage);
-  
-    //test for array comparisons
-    var arr1 = firstImage.filters;
-    var arr2 = secondImage.filters;
-  
-    if (firstImage.key != secondImage.key){
-        return false;
-      }
-  
-    //neither image is filtered
-    if (arr1 == null && arr2 == null){
-        return true;
-      }
-    else if (arr1 == null || arr2 == null){
-        return false;
-      }
-  
-    if (arr1.length != arr2.length){
-        return false;
-      }
-  
-    //if here, we know that they are both arrays so we can sort them
-    var nameArr1 = [];
-    var nameArr2 = [];
-  
-  
-    for(var i = arr1.length; i--;){
-        nameArr1.push(arr1[i].name);
-        nameArr2.push(arr2[i].name);
-      }
-  
-    arr1 = nameArr1.sort();
-    arr2 = nameArr2.sort();
-  
-  
-    for (var i = arr1.length; i--;) {
-        if(arr1[i] != arr2[i]){
-            return false;
-          }
-      }
-  
-    return true;
+function collidePerson(obj1, obj2){
+    if(!foundPerson){
+        foundPerson = true;
+        console.log("found sonic!");
+        turtle.visible = true;
+    }
+  npcCollision(obj1, obj2);
 }
 
 
 
-//Collision handler for NPCs
-var npcCollision = function(player, npc){
-  TA.createDiaFlag = true;
-  sayDialogue(npc);
+//method to compare if two images are filtered the same way
+function compareImages(firstImage, secondImage){
+  //console.log("compare images");
+  //console.log(firstImage);
+  //console.log(secondImage);
+
+  //test for array comparisons
+  var arr1 = firstImage.filters;
+  var arr2 = secondImage.filters;
+
+  if (firstImage.key != secondImage.key){
+    return false;
+  }
+
+  //neither image is filtered
+  if (arr1 == null && arr2 == null){
+    return true;
+  }
+  else if (arr1 == null || arr2 == null){
+    return false;
+  }
+
+  if (arr1.length != arr2.length){
+    return false;
+  }
+
+  //if here, we know that they are both arrays so we can sort them
+  arr1 = arr1.sort();
+  arr2 = arr2.sort();
+
+
+
+  for (var i = arr1.length; i--;) {
+    if(arr1[i] != arr2[i]){
+      return false;
+    }
+  }
+
+
+
+  return true;
+
 }
 
 function onTap(pointer, doubleTap) {
   if (doubleTap)
   {
     //  They double-tapped, so swap the image
-    if(TA.createDiaFlag == true){
+    if(createDiaFlag == true){
+      console.log('ppppppppppp');
       currentDialogue.removeText();
-      TA.createDiaFlag = false;
     }
   }
 }
