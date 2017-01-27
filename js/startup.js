@@ -3,13 +3,35 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example');
 
 //declare Game object and other globals
 var TA = new function(){
-  this.createTextFlag = false;
+
   this.createDiaFlag = false;
   this.playerX;
   this.playerY;
   this.startingGame = true;
   this.foundPerson = false;
   this.solvedTurtle = false;
+
+  this.resetGlobals = function() {
+    this.createDiaFlag = false;
+    this.startingGame = true;
+    this.foundPerson = false;
+    this.solvedTurtle = false;
+  }
+
+
+
+  this.level0 = new function() {
+    this.turtle;
+    this.fakeKiwi;
+    this.npc;
+    this.completedPuzzle = false;
+    this.startingLevel = true;
+
+    this.reset = function() {
+      this.startingLevel = true;
+      this.completedPuzzle = false;
+    }
+  }
 
   this.level1 = new function() {
     this.foundPerson = false;
@@ -27,6 +49,14 @@ var TA = new function(){
   }
 
 }
+
+function resetAll() {
+  TA.resetGlobals();
+  TA.level0.reset();
+  TA.level1.reset();
+}
+
+resetAll();
 
 //----------VARIABLES ---------------------//
 var w = 800; // game width
@@ -75,14 +105,14 @@ function wallCollision (obj1, obj2) {
   //console.log('wall hit');
 }
 
-function collidePerson(obj1, obj2){
-    if(!foundPerson){
-        foundPerson = true;
-        console.log("found sonic!");
-        turtle.visible = true;
-    }
-  npcCollision(obj1, obj2);
-}
+// function collidePerson(obj1, obj2){
+//     if(!foundPerson){
+//         foundPerson = true;
+//         console.log("found sonic!");
+//         // turtle.visible = true;
+//     }
+//   npcCollision(obj1, obj2);
+// }
 
 
 
@@ -130,13 +160,19 @@ function compareImages(firstImage, secondImage){
 
 }
 
+//Collision handler for NPCs
+var npcCollision = function(player, npc){
+  TA.createDiaFlag = true;
+  sayDialogue(npc);
+}
+
 function onTap(pointer, doubleTap) {
   if (doubleTap)
   {
     //  They double-tapped, so swap the image
-    if(createDiaFlag == true){
-      console.log('ppppppppppp');
+    if(TA.createDiaFlag == true){
       currentDialogue.removeText();
+      TA.createDiaFlag = false;
     }
   }
 }
