@@ -12,7 +12,7 @@ var mainState = {
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
 
-    turtle = new Turtle(80, 60, game, 'turtle', content);
+    //turtle = new Turtle(80, 60, game, 'turtle', content);
 
     //logic to get correct player position if coming from imageState
     if(startingGame){
