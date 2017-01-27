@@ -12,6 +12,9 @@ var Level3 = {
 
     // Setup NPCs
 
+    TA.level3.profpixel = new NPC(200, 100, game, 'kiwi', npctalk);
+
+
 
     // Setup Player
     if(TA.level3.startingLevel){

@@ -78,7 +78,6 @@ var Level1 = {
   },
 
   turtlecalling: function(obj1, obj2){
-    console.log('mad world');
     console.log(obj2.shaderList);
   }
 
