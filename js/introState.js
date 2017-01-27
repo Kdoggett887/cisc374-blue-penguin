@@ -5,16 +5,14 @@ var introState = {
 
 
 
-
   create: function(){
     var labelButton = new LabelButton(game, 80, 520, "emptyButton", "Next", this.toMain, this); //changeText
 
     //text2 = game.add.text(game.world.centerX - 40, game.world.centerY -50, "PRESS SPACE", style);
     //introSlideText = game.add.text(80, 80, intro2[0], {font: "25px Arial", fill: "#ffffff" });
     var introStyle = { font: "32px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: 700, align: "center", backgroundColor: "#ffff00" };
+    
     introSlideText = game.add.text(game.world.centerX - 40, game.world.centerY - 50, intro,{font: "25px Arial", fill: "#ffffff", wordWrap: true, wordWrapWidth: 700, align: "left"} );
-    console.log("added text");
-    console.log(introSlideText);
     introSlideText.anchor.set(0.5);
     //this.textBoxLength = intro.length;
 
