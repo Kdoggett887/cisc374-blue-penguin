@@ -76,50 +76,56 @@ function collidePerson(obj1, obj2){
 }
 
 
-
-//method to compare if two images are filtered the same way
+//compare if two images are filtered the same way
 function compareImages(firstImage, secondImage){
-  //console.log("compare images");
-  //console.log(firstImage);
-  //console.log(secondImage);
-
-  //test for array comparisons
-  var arr1 = firstImage.filters;
-  var arr2 = secondImage.filters;
-
-  if (firstImage.key != secondImage.key){
-    return false;
-  }
-
-  //neither image is filtered
-  if (arr1 == null && arr2 == null){
-    return true;
-  }
-  else if (arr1 == null || arr2 == null){
-    return false;
-  }
-
-  if (arr1.length != arr2.length){
-    return false;
-  }
-
-  //if here, we know that they are both arrays so we can sort them
-  arr1 = arr1.sort();
-  arr2 = arr2.sort();
-
-
-
-  for (var i = arr1.length; i--;) {
-    if(arr1[i] != arr2[i]){
-      return false;
-    }
-  }
-
-
-
-  return true;
-
+    console.log("compare images");
+    console.log(firstImage);
+    console.log(secondImage);
+  
+    //test for array comparisons
+    var arr1 = firstImage.filters;
+    var arr2 = secondImage.filters;
+  
+    if (firstImage.key != secondImage.key){
+        return false;
+      }
+  
+    //neither image is filtered
+    if (arr1 == null && arr2 == null){
+        return true;
+      }
+    else if (arr1 == null || arr2 == null){
+        return false;
+      }
+  
+    if (arr1.length != arr2.length){
+        return false;
+      }
+  
+    //if here, we know that they are both arrays so we can sort them
+    var nameArr1 = [];
+    var nameArr2 = [];
+  
+  
+    for(var i = arr1.length; i--;){
+        nameArr1.push(arr1[i].name);
+        nameArr2.push(arr2[i].name);
+      }
+  
+    arr1 = nameArr1.sort();
+    arr2 = nameArr2.sort();
+  
+  
+    for (var i = arr1.length; i--;) {
+        if(arr1[i] != arr2[i]){
+            return false;
+          }
+      }
+  
+    return true;
 }
+
+
 
 function onTap(pointer, doubleTap) {
   if (doubleTap)
