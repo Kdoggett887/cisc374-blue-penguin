@@ -21,6 +21,11 @@ var gameOverState = {
     solvedTurtle = false;
     completedPuzzle1 = false;
     foundPerson = false;
+    TA.currentLevel = 0;
+    TA.level0.reset();
+    TA.level1.reset();
+    TA.level2.reset();
+    TA.level3.reset();
     game.state.start('Level0');
   },
 
@@ -29,6 +34,11 @@ var gameOverState = {
     solvedTurtle = false;
     completedPuzzle1 = false;
     foundPerson = false;
+    TA.currentLevel = 0;
+    TA.level0.reset();
+    TA.level1.reset();
+    TA.level2.reset();
+    TA.level3.reset();
     game.state.start('GameTitle');
   }
 }

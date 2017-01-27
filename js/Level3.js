@@ -61,8 +61,9 @@ var Level3 = {
 
   // Collision handler for the npc
   firstPersonCollision: function(obj1, obj2) {
-    npcCollision(obj1, obj2);
+    //npcCollision(obj1, obj2);
     //TA.level0.turtle.visible = true;
+    game.state.start('GameOver');
     console.log('colli');
   }
 
