@@ -183,8 +183,10 @@ function filterClass(game, imageKey, shaders) {
     function completeFilter() {
         if (compareImages(cleanImage, filterImage)) {
             completedPuzzle1 = true;
+
             console.log("u win");
             TA.currentTurtle = null;
+
           var nextLevel = TA.currentLevel + 1;
           var nextLevelName = "Level" + nextLevel;
           if(nextLevel <= 3){
@@ -193,7 +195,7 @@ function filterClass(game, imageKey, shaders) {
           else{
             game.state.start("GameOver");
           }
-          
+
         }
         else{
           console.log("Images different...try again");

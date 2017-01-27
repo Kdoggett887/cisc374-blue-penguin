@@ -6,7 +6,10 @@ Turtle = function(x, y, game, sprite, dialogue, shaderList){
   this.shaderList = shaderList;
   this.dialogue = dialogue;
 
+  this.shaderList = shaderList;
+  this.game.physics.arcade.enableBody(this);
   this.enableBody = true;
+  this.body.immovable = true;
   //this.body.moves = false;
   game.add.existing(this);
 

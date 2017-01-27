@@ -15,10 +15,10 @@ var Level2 = {
 
     // Setup Player
     if(TA.level2.startingLevel){
-      TA.level2.turtleRed = new Turtle(game.world.centerX - 650, game.world.centerY - 200, game, 'turtle', samepleText, [[redShader, "RED", 1]]);
-      TA.level2.turtleGreen = new Turtle(game.world.centerX + 400, game.world.centerY + 100, game, 'turtle', sampleText);
-      TA.level2.turtleBlue = new Turtle(game.world.centerX - 650, game.world.centerY + 400, game, 'turtle', sampleText);
-      TA.level2.turtleFinal = new Turtle(game.world.centerX, game.world.centerY - 800, game, 'turtle', samepleText);
+      TA.level2.turtleRed = new Turtle(game.world.centerX - 650, game.world.centerY - 200, game, 'turtle', sampleText, [[removeRedShader, "RED", 1]]);
+      TA.level2.turtleGreen = new Turtle(game.world.centerX + 400, game.world.centerY + 100, game, 'turtle', sampleText, [[removeGreenShader, "GREEN", 1]]);
+      TA.level2.turtleBlue = new Turtle(game.world.centerX - 650, game.world.centerY + 400, game, 'turtle', sampleText, [[removeBlueShader, "BLUE", 1]]);
+      TA.level2.turtleFinal = new Turtle(game.world.centerX, game.world.centerY - 800, game, 'turtle', sampleText, [[removeRedShader, "RED", 1], [removeGreenShader, "GREEN", 1], [removeBlueShader, "BLUE", 0]]);
       TA.level2.startingLevel = false;
       player = game.add.sprite(game.world.centerX, game.world._height - 200, 'kiwi');
     }
@@ -60,6 +60,10 @@ var Level2 = {
   // All collision handlers for the level
   addCollisions: function() {
     game.physics.arcade.collide(player, wallGroup, wallCollision, null, this);
+    game.physics.arcade.collide(player, TA.level2.turtleRed, this.stateChangeCollision, null, this);
+    game.physics.arcade.collide(player, TA.level2.turtleGreen, this.stateChangeCollision, null, this);
+    game.physics.arcade.collide(player, TA.level2.turtleBlue, this.stateChangeCollision, null, this);
+    game.physics.arcade.collide(player, TA.level2.turtleFinal, this.stateChangeCollision, null, this);
 
   },
 

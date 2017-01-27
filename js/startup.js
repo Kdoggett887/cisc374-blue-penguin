@@ -12,6 +12,7 @@ var TA = new function(){
   this.currentTurtle = null;
   this.currentLevel = 0;
 
+
   this.resetGlobals = function() {
     this.createDiaFlag = false;
     this.startingGame = true;
@@ -37,6 +38,7 @@ var TA = new function(){
   }
 
   this.level1 = new function() {
+    this.turtleGroup;
     this.startingLevel = true;
     this.completedPuzzle = false;
 
@@ -49,6 +51,10 @@ var TA = new function(){
   this.level2 = new function() {
     this.startingLevel = true;
     this.completedPuzzle = false;
+    this.turtleRed;
+    this.turtleGreen;
+    this.turtleBlue;
+    this.turtleFinal;
 
     this.reset = function() {
       this.startingLevel = true;
@@ -66,6 +72,17 @@ var TA = new function(){
     }
   }
 
+
+  this.allLevels = [this.level0, this.level1, this.level2, this.level3];
+
+  this.getCurrentLevel = function() {
+    for (var i = 0; i < 4; i++) {
+      if (!this.allLevels[i].isFinishedLevel) {
+        return i;
+        }
+      }
+    }
+  }
 }
 
 
@@ -91,7 +108,7 @@ var sonictalk = ['HEY! Have you seen my missing turtle!?! I have not seen him in
 
 var npctalk = ['me: Im gonna help find and return these turtles.', 'me to me: Steal them and keep them all for yourself'];
 
-var samepleText = ['This is sample text that will be replaced', 'by the real text later...'];
+var sampleText = ['This is sample text that will be replaced', 'by the real text later...'];
 
 
 
