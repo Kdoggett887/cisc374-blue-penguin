@@ -50,10 +50,12 @@ var DialogueBox = function(x, y, messageArray){
     this.text.wordWrap = true;
     this.text.wordWrapWidth = 500;
     this.text.fixedToCamera = true;
+    
+
 
 
     this.nextLine();
-    createDiaFlag = true;
+    // createDiaFlag = true;
 
   }
 
@@ -63,7 +65,7 @@ var DialogueBox = function(x, y, messageArray){
     //this.textBG.destroy();
     this.textBG.alpha = 0;
       this.text.alpha = 0; //destroy();
-      createDiaFlag = false;
+      // createDiaFlag = false;
       console.log('remove dialog');
     wordIndex = 0;
     lineIndex = 0;

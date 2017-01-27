@@ -19,7 +19,7 @@ function filterClass(game, imageKey, shaders) {
       this.makeFilters();
       this.setupImages(game, this.imageKey, this.filters);
       this.setupButtons();
-      this.setupSlider();
+      //this.setupSlider();
 
 
     }
@@ -30,7 +30,7 @@ function filterClass(game, imageKey, shaders) {
     for (var i=0; i < this.shaders.length; i++){
       this.filters[i] = new Phaser.Filter(game, null, this.shaders[i][0]);
       this.filters[i].name = this.shaders[i][1];
-      //this.filters[i].passes = this.shaders[i][2];
+      this.filters[i].numPasses = this.shaders[i][2];
     }
   }
 
@@ -116,7 +116,9 @@ function filterClass(game, imageKey, shaders) {
       //right now this applies all filters in the list to the filtered image
       //later you might want to only apply 1 or 2 or some other combo so the player has to choose amongst the options
       for (var i=0; i < filters.length; i++){
-        pushFilter(filterImage, filters[i]);
+        for(var p = filters[i].numPasses; p > 0; p--){
+          pushFilter(filterImage, filters[i]);
+        }
       }
     }
 
@@ -126,7 +128,7 @@ function filterClass(game, imageKey, shaders) {
         }
         else {
             image.filters.push(filter);
-            image.filters = image.filters;
+            image.filters = image.filters; //NOTE: only updates when you set it to itself, DO NOT DELETE
         }
     }
 
@@ -164,6 +166,7 @@ function filterClass(game, imageKey, shaders) {
         }
         else{
           console.log("Images different...try again");
+          
         }
     }
 
