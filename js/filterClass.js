@@ -118,7 +118,7 @@ function filterClass(game, imageKey, shaders) {
         }
         else {
             image.filters.push(filter);
-            //image.filters = image.filters;
+            image.filters = image.filters; //NOTE: only updates when you set it to itself, DO NOT DELETE
         }
     }
 
