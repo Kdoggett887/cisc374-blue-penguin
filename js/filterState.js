@@ -20,6 +20,15 @@ var imageState = {
   },
 
   toGame: function(){
+    var currentLevel = TA.getCurrentLevel();
+    console.log("fuckme");
+
+    if (currentLevel = 0) {
+      game.state.start('Level0');
+    }
+    else if (currentLevel == 1) {
+      game.state.start('Level1');
+    }
     game.state.start('GameOver');
     console.log('hello');
   },

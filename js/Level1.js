@@ -8,7 +8,7 @@ var Level1 = {
     // Setup World
     game.add.tileSprite(0, 0, 1920, 1920, 'background');
     game.world.setBounds(0, 0, 1920, 1920);
-    TA.currentLevel = 1;
+    this.nextLevel = "Level2";
 
     // Setup NPCs
     TA.level1.turtleGroup = game.add.physicsGroup();
@@ -72,7 +72,7 @@ var Level1 = {
       //game.physics.arcade.collide(player, TA.level0.npc, this.firstPersonCollision, null, this);
       //game.physics.arcade.collide(player, TA.level0.turtle, this.stateChangeCollision, null, this);
       game.physics.arcade.collide(player, wallGroup, wallCollision, null, this);
-      game.physics.arcade.collide(player, TA.level1.turtleGroup, this.turtlecalling, null, this);
+      game.physics.arcade.collide(player, TA.level1.turtleGroup, stateChangeCollision, null, this);
       //game.physics.arcade.collide(player, TA.level0.fakeKiwi, this.firstPersonCollision, null, this);
 
   },

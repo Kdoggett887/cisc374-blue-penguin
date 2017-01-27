@@ -12,6 +12,8 @@ var TA = new function(){
   this.currentTurtle = null;
   this.currentLevel = 0;
 
+  this.turtleCount = 0;
+
 
   this.resetGlobals = function() {
     this.createDiaFlag = false;
@@ -25,7 +27,7 @@ var TA = new function(){
 
 
   this.level0 = new function() {
-    this.turtle;
+    this.turtleGroup;
     this.fakeKiwi;
     this.npc;
     this.completedPuzzle = false;
@@ -35,6 +37,28 @@ var TA = new function(){
       this.startingLevel = true;
       this.completedPuzzle = false;
     }
+
+    this.isFinishedLevel = function() {
+      if (this.completedPuzzle) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+
+
+    // this.checkTurtlesDone = function() {
+    //   console.log("checking da turtdles");
+    //   console.log(TA.level0);
+    //   if(TA.level0.turtleGroup.length == 0){
+    //     console.log("found all the turtles on this level");
+    //     game.state.start(TA.level0.nextLevel);
+    //   }
+    //   else{
+    //     console.log("look for more turtles");
+    //   }
+    // }
   }
 
   this.level1 = new function() {
@@ -45,6 +69,10 @@ var TA = new function(){
     this.reset = function() {
       this.startingLevel = true;
       this.completedPuzzle = false;
+    }
+
+    this.isFinishedLevel = function() {
+      return false;
     }
   }
 
@@ -76,13 +104,38 @@ var TA = new function(){
   this.allLevels = [this.level0, this.level1, this.level2, this.level3];
 
   this.getCurrentLevel = function() {
-    for (var i = 0; i < 4; i++) {
-      if (!this.allLevels[i].isFinishedLevel) {
-        return i;
-        }
+    console.log("start");
+    if (this.currentLevel == 0) {
+      console.log("level0");
+      if (this.turtleCount == 1) {
+        this.turtleCount = 0;
+        return 1;
+      }
+      else {
+        return 0;
       }
     }
+    else if (this.currentLevel == 1) {
+      console.log("level1");
+      if (this.turtleCount == 3) {
+        this.turtleCount = 0;
+        return 2;
+      }
+      else {
+        return 1;
+      }
+    }
+    else if (this.currentLevel == 2) {
+      if (this.turtleCount == 4) {
+        return 3;
+      }
+      else {
+        return 2;
+      }
+    }
+    console.log("end");
   }
+
 }
 
 
@@ -209,6 +262,17 @@ var npcCollision = function(player, npc){
   sayDialogue(npc.dialogue);
 }
 
+//collision handler for Turtles
+var stateChangeCollision = function(obj1, obj2){
+  if (!TA.level0.completedPuzzle) {
+    TA.playerX = obj1.body.center.x;
+    TA.playerY = obj2.body.center.y;
+    TA.currentTurtle = obj2;
+    game.state.start('Image');
+  }
+}
+
+
 function onTap(pointer, doubleTap) {
    if (doubleTap)
    {
@@ -219,6 +283,7 @@ function onTap(pointer, doubleTap) {
      }
    }
 }
+
 
 function setupUpdate() {
   player.body.velocity.setTo(0, 0);
