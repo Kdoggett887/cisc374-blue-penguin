@@ -91,6 +91,8 @@ var sonictalk = ['HEY! Have you seen my missing turtle!?! I have not seen him in
 
 var npctalk = ['me: Im gonna help find and return these turtles.', 'me to me: Steal them and keep them all for yourself'];
 
+var samepleText = ['This is sample text that will be replaced', 'by the real text later...'];
+
 
 
 
@@ -187,7 +189,7 @@ function compareImages(firstImage, secondImage){
 //Collision handler for NPCs
 var npcCollision = function(player, npc){
   TA.createDiaFlag = true;
-  sayDialogue(npc);
+  sayDialogue(npc.dialogue);
 }
 
 function onTap(pointer, doubleTap) {

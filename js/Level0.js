@@ -17,7 +17,7 @@ var Level0 = {
 
     // Setup Player/Turtles
     if(TA.level0.startingLevel){
-      TA.level0.turtle = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 600, game, 'turtle', [[blurShader, "BLUR", 1],[grayscaleShader, "GRAYSCALE", 1], [arithmeticAddShader,"ADD", 0]]);
+      TA.level0.turtle = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 600, game, 'turtle', samepleText, [[blurShader, "BLUR", 1],[grayscaleShader, "GRAYSCALE", 1], [arithmeticAddShader,"ADD", 0]]);
       player = game.add.sprite(game.world.centerX, game.world._height - 200, 'kiwi');
       TA.level0.startingLevel = false;
     }
@@ -25,7 +25,7 @@ var Level0 = {
       //if persisting data put it in here
       player = game.add.sprite(TA.playerX, TA.playerY, 'kiwi');
     }
-
+    console.log("what");
 
     // Add physics for all sprites
     game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -67,7 +67,7 @@ var Level0 = {
     if (!TA.level0.completedPuzzle) {
         TA.playerX = obj1.body.center.x;
         TA.playerY = obj2.body.center.y;
-      TA.currentTurtle = obj2;
+        TA.currentTurtle = obj2;
         game.state.start('Image');
     }
   },
