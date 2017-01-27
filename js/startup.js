@@ -3,7 +3,6 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example');
 
 //declare Game object and other globals
 var TA = new function(){
-
   this.createDiaFlag = false;
   this.playerX;
   this.playerY;
@@ -66,7 +65,6 @@ var TA = new function(){
 }
 
 
-
 //----------VARIABLES ---------------------//
 var w = 800; // game width
 var spacebar;
@@ -99,6 +97,7 @@ var inBound;
 var turtle;
 var introText;
 var NpcTest;
+//var incompleteText;
 
 var music;
 var mute_label;
@@ -121,17 +120,18 @@ function wallCollision (obj1, obj2) {
   //console.log('wall hit');
 }
 
-// function collidePerson(obj1, obj2){
-//     if(!foundPerson){
-//         foundPerson = true;
-//         console.log("found sonic!");
-//         // turtle.visible = true;
-//     }
-//   npcCollision(obj1, obj2);
-// }
+function collidePerson(obj1, obj2){
+    if(!foundPerson){
+        foundPerson = true;
+        console.log("found sonic!");
+        turtle.visible = true;
+    }
+  npcCollision(obj1, obj2);
+}
 
 
-//compare if two images are filtered the same way
+
+//method to compare if two images are filtered the same way
 function compareImages(firstImage, secondImage){
     console.log("compare images");
     console.log(firstImage);
@@ -182,19 +182,13 @@ function compareImages(firstImage, secondImage){
 
 
 
-//Collision handler for NPCs
-var npcCollision = function(player, npc){
-  TA.createDiaFlag = true;
-  sayDialogue(npc);
-}
-
 function onTap(pointer, doubleTap) {
   if (doubleTap)
   {
     //  They double-tapped, so swap the image
-    if(TA.createDiaFlag == true){
+    if(createDiaFlag == true){
+      console.log('ppppppppppp');
       currentDialogue.removeText();
-      TA.createDiaFlag = false;
     }
   }
 }

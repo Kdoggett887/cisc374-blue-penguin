@@ -155,8 +155,11 @@ function filterClass(game, imageKey, shaders) {
             game.state.start("GameOver");
         }
         else{
-          console.log("Images different...try again");
-          
+          //console.log("Images different...try again");
+          //var introStyle = { font: "32px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: 700, align: "center", backgroundColor: "#ffff00" };
+          // incompleteText = game.add.text(game.world.centerX, game.world.centerY, "images are different...try again",
+          //   {font: "25px Arial", fill: "#ffffff", align: "center"});
+          // console.log(incompleteText);
         }
     }
 
