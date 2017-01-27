@@ -22,6 +22,7 @@ var preloadState = {
     game.load.image('turtle','images/turtle.png');
     game.load.image('kiwi', 'images/detective_sprite.png');
     game.load.image('slider', 'assets/sprites/pepper.png');
+    game.load.image('profpixel', 'images/prof_pixelsm.png');
   },
 
   //sends us to the main menu

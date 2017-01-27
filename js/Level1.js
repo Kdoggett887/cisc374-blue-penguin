@@ -16,7 +16,7 @@ var Level1 = {
     //TA.level1.turtleGroup.forEach(function(turtle){});
     var turtleBlur = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 600, game, 'turtle', [[blurShader, "BLUR",2], [arithmeticAddShader,"ADD",1], [grayscaleShader, "GRAYSCALE",1]]);
     var turtleBlur2 = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 700, game, 'turtle', [[grayscaleShader, "GRAYSCALE",1]]);
-    var turtleBlur3 = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 900, game, 'turtle', [[arithmeticAddShader,"ADD",1]]);
+    var turtleBlur3 = new Turtle(game.world.centerX/2 - 200, game.world.centerY/2 + 900, game, 'turtle', [[arithmeticAddShader,"ADD",1]]);
 
     TA.level1.turtleGroup.add(turtleBlur);
     TA.level1.turtleGroup.add(turtleBlur2);

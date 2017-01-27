@@ -12,7 +12,7 @@ var Level3 = {
 
     // Setup NPCs
 
-    TA.level3.profpixel = new NPC(200, 100, game, 'kiwi', npctalk);
+    TA.level3.profpixel = new NPC(200, 100, game, 'profpixel', profpixeltalk);
 
 
 
@@ -54,7 +54,16 @@ var Level3 = {
 
   // All collision handlers for the level
   addCollisions: function() {
+    game.physics.arcade.collide(player, TA.level3.profpixel, this.firstPersonCollision, null, this);
 
+
+  },
+
+  // Collision handler for the npc
+  firstPersonCollision: function(obj1, obj2) {
+    npcCollision(obj1, obj2);
+    //TA.level0.turtle.visible = true;
+    console.log('colli');
   }
 
 }
