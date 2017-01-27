@@ -189,23 +189,28 @@ function filterClass(game, imageKey, shaders) {
           TA.turtleCount++;
           console.log(TA.turtleCount);
           var currentLevel = TA.getCurrentLevel();
+          console.log("currentlevel " + currentLevel);
 
 
           if (currentLevel == 0) {
             game.state.start('Level1');
-            console.log('starting1' + 'level1');
+            currentLevel++;
+            console.log('starting' + 'level1');
           }
           else if (currentLevel == 1) {
             game.state.start('Level2');
-            console.log('starting1' + 'level2');
+            currentLevel++;
+            console.log('starting' + 'level2');
           }
           else if (currentLevel == 2) {
             game.state.start('Level3');
-            console.log('starting1' + 'level3');
+            currentLevel++;
+            console.log('starting' + 'level3');
           }
           else if (currentLevel == 3) {
             game.state.start('GameOver');
-            console.log('starting1' + 'levelgameover');
+            currentLevel++;
+            console.log('starting' + 'levelgameover');
           }
 
 

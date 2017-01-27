@@ -10,6 +10,7 @@ var Level0 = {
     game.add.tileSprite(0, 0, 1920, 1920, 'background');
     game.world.setBounds(0, 0, 1920, 1920);
     this.nextLevel = "Level1";
+    TA.currentlevel++;
 
     // Setup NPCs
     TA.level0.fakeKiwi = new NPC(200, 100, game, 'kiwi', npctalk);
@@ -17,7 +18,7 @@ var Level0 = {
 
     // Setup Player/Turtles
     if(TA.level0.startingLevel){
-      TA.level0.turtle = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 600, game, 'turtle', sampleText, [[blurShader, "BLUR", 1],[grayscaleShader, "GRAYSCALE", 1], [arithmeticAddShader,"ADD", 0]]);
+      TA.level0.turtle = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 600, game, 'turtle', sampleText, [[grayscaleShader, "GREYSCALE", 1]]);
       // TA.level0.turtleGroup = game.add.physicsGroup();
       // TA.level0.turtleGroup.classType = Turtle;
       //

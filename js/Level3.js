@@ -9,7 +9,7 @@ var Level3 = {
     game.add.tileSprite(0, 0, 1920, 1920, 'background');
     game.world.setBounds(0, 0, 1920, 1920);
     this.nextLevel = "GameOver";
-
+    TA.currentLevel++;
     // Setup NPCs
 
     TA.level3.profpixel = new NPC(200, 100, game, 'profpixel', profpixeltalk);

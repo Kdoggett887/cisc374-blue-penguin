@@ -21,7 +21,7 @@ var TA = new function(){
     this.foundPerson = false;
     this.solvedTurtle = false;
     this.currentTurtle = null;
-    this.currentLevel = 0;
+    //this.currentLevel = 0;
   }
 
 
@@ -110,36 +110,39 @@ var TA = new function(){
   this.allLevels = [this.level0, this.level1, this.level2, this.level3];
 
   this.getCurrentLevel = function() {
-    console.log("start");
-    if (this.currentLevel == 0) {
+    console.log("getting current level");
+    return this.currentLevel;
+    /*if (this.currentLevel == 0) {
       console.log("level0");
       if (this.turtleCount == 1) {
         this.turtleCount = 0;
-        return 1;
+        return 0;
       }
       else {
         return 0;
       }
+      return 0;
     }
     else if (this.currentLevel == 1) {
       console.log("level1");
       if (this.turtleCount == 1) {
         this.turtleCount = 0;
-        return 2;
+        return 1;
       }
       else {
         return 1;
       }
+      return 1;
     }
     else if (this.currentLevel == 2) {
       if (this.turtleCount == 1) {
-        return 3;
+        return 2;
       }
       else {
         return 2;
         console.log('ELSE REGURN #');
       }
-    }
+    }*/
     console.log("end");
   }
 

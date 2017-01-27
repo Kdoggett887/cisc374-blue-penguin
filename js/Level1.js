@@ -9,7 +9,7 @@ var Level1 = {
     game.add.tileSprite(0, 0, 1920, 1920, 'background');
     game.world.setBounds(0, 0, 1920, 1920);
     this.nextLevel = "Level2";
-
+    TA.currentLevel++;
     // Setup NPCs
     //TA.level1.turtleGroup = game.add.physicsGroup();
     //TA.level1.turtleGroup.classType = Turtle;
@@ -32,7 +32,7 @@ var Level1 = {
       player = game.add.sprite(game.world.centerX, game.world._height - 200, 'kiwi');
       //TA.level1.turtle1 = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 600, game, 'turtle', sampleText, [[arithmeticAddShader,"ADD",1], [grayscaleShader, "GRAYSCALE",1]]);
       //TA.level1.turtle2 = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 700, game, 'turtle', sampleText, [[grayscaleShader, "GRAYSCALE",1]]);
-      TA.level1.turtle3 = new Turtle(game.world.centerX/2 - 200, game.world.centerY/2 + 900, game, 'turtle', sampleText, [[arithmeticAddShader,"ADD",1]]);
+      TA.level1.turtle3 = new Turtle(game.world.centerX/2 - 200, game.world.centerY/2 + 900, game, 'turtle', sampleText, [[arithmeticAddShader,"ADD",1],[grayscaleShader,"GRAY",0]]);
 
     } else{
       //if persisting data put it in here
