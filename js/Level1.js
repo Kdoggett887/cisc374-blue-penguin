@@ -30,14 +30,14 @@ var Level1 = {
     if(TA.level1.startingLevel){
       TA.level1.startingLevel = false;
       player = game.add.sprite(game.world.centerX, game.world._height - 200, 'kiwi');
-      TA.level1.turtle1 = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 600, game, 'turtle', sampleText, [[arithmeticAddShader,"ADD",1], [grayscaleShader, "GRAYSCALE",1]]);
-      TA.level1.turtle2 = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 700, game, 'turtle', sampleText, [[grayscaleShader, "GRAYSCALE",1]]);
+      //TA.level1.turtle1 = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 600, game, 'turtle', sampleText, [[arithmeticAddShader,"ADD",1], [grayscaleShader, "GRAYSCALE",1]]);
+      //TA.level1.turtle2 = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 700, game, 'turtle', sampleText, [[grayscaleShader, "GRAYSCALE",1]]);
       TA.level1.turtle3 = new Turtle(game.world.centerX/2 - 200, game.world.centerY/2 + 900, game, 'turtle', sampleText, [[arithmeticAddShader,"ADD",1]]);
 
     } else{
       //if persisting data put it in here
       player = game.add.sprite(TA.playerX, TA.playerY, 'kiwi');
-      
+
     }
 
 
@@ -76,8 +76,8 @@ var Level1 = {
       //game.physics.arcade.collide(player, TA.level0.npc, this.firstPersonCollision, null, this);
       //game.physics.arcade.collide(player, TA.level0.turtle, this.stateChangeCollision, null, this);
       game.physics.arcade.collide(player, wallGroup, wallCollision, null, this);
-      game.physics.arcade.collide(player, TA.level1.turtle1, stateChangeCollision, null, this);
-      game.physics.arcade.collide(player, TA.level1.turtle2, stateChangeCollision, null, this);
+      //game.physics.arcade.collide(player, TA.level1.turtle1, stateChangeCollision, null, this);
+      //game.physics.arcade.collide(player, TA.level1.turtle2, stateChangeCollision, null, this);
       game.physics.arcade.collide(player, TA.level1.turtle3, stateChangeCollision, null, this);
       //game.physics.arcade.collide(player, TA.level1.turtleGroup, stateChangeCollision, null, this);
       //game.physics.arcade.collide(player, TA.level0.fakeKiwi, this.firstPersonCollision, null, this);

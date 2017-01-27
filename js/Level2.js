@@ -60,10 +60,10 @@ var Level2 = {
   // All collision handlers for the level
   addCollisions: function() {
     game.physics.arcade.collide(player, wallGroup, wallCollision, null, this);
-    game.physics.arcade.collide(player, TA.level2.turtleRed, this.stateChangeCollision, null, this);
-    game.physics.arcade.collide(player, TA.level2.turtleGreen, this.stateChangeCollision, null, this);
-    game.physics.arcade.collide(player, TA.level2.turtleBlue, this.stateChangeCollision, null, this);
-    game.physics.arcade.collide(player, TA.level2.turtleFinal, this.stateChangeCollision, null, this);
+    game.physics.arcade.collide(player, TA.level2.turtleRed, stateChangeCollision, null, this);
+    //game.physics.arcade.collide(player, TA.level2.turtleGreen, this.stateChangeCollision, null, this);
+    //game.physics.arcade.collide(player, TA.level2.turtleBlue, this.stateChangeCollision, null, this);
+    //game.physics.arcade.collide(player, TA.level2.turtleFinal, this.stateChangeCollision, null, this);
 
   },
 

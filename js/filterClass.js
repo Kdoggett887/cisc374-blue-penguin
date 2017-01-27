@@ -191,20 +191,18 @@ function filterClass(game, imageKey, shaders) {
           var currentLevel = TA.getCurrentLevel();
 
           if (currentLevel == 0) {
-            game.state.start('Level0');
-          }
-          else if (currentLevel == 1) {
             game.state.start('Level1');
           }
-          else if (currentLevel == 2) {
+          else if (currentLevel == 1) {
             game.state.start('Level2');
           }
-          else if (currentLevel == 3) {
-            game.state.start('level3');
+          else if (currentLevel == 2) {
+            game.state.start('Level3');
           }
-          else if (currentLevel == 4) {
+          else if (currentLevel == 3) {
             game.state.start('GameOver');
           }
+
 
           // TA.currentTurtle.destroy();
           // TA.currentTurtle = null;
