@@ -12,6 +12,9 @@ var TA = new function(){
   this.currentTurtle = null;
   this.currentLevel = 0;
 
+  this.turtleCount = 0;
+
+
   this.resetGlobals = function() {
     this.createDiaFlag = false;
     this.startingGame = true;
@@ -35,17 +38,29 @@ var TA = new function(){
       this.completedPuzzle = false;
     }
 
-    this.checkTurtlesDone = function() {
-      console.log("checking da turtdles");
-      console.log(TA.level0);
-      if(TA.level0.turtleGroup.length == 0){
-        console.log("found all the turtles on this level");
-        game.state.start(TA.level0.nextLevel);
+
+    this.isFinishedLevel = function() {
+      if (this.completedPuzzle) {
+        return true;
+
       }
-      else{
-        console.log("look for more turtles");
+      else {
+        return false;
       }
     }
+
+
+    // this.checkTurtlesDone = function() {
+    //   console.log("checking da turtdles");
+    //   console.log(TA.level0);
+    //   if(TA.level0.turtleGroup.length == 0){
+    //     console.log("found all the turtles on this level");
+    //     game.state.start(TA.level0.nextLevel);
+    //   }
+    //   else{
+    //     console.log("look for more turtles");
+    //   }
+    // }
   }
 
   this.level1 = new function() {
@@ -57,11 +72,19 @@ var TA = new function(){
       this.startingLevel = true;
       this.completedPuzzle = false;
     }
+
+    this.isFinishedLevel = function() {
+      return false;
+    }
   }
 
   this.level2 = new function() {
     this.startingLevel = true;
     this.completedPuzzle = false;
+    this.turtleRed;
+    this.turtleGreen;
+    this.turtleBlue;
+    this.turtleFinal;
 
     this.reset = function() {
       this.startingLevel = true;
@@ -78,6 +101,42 @@ var TA = new function(){
       this.startingLevel = true;
       this.completedPuzzle = false;
     }
+  }
+
+
+  this.allLevels = [this.level0, this.level1, this.level2, this.level3];
+
+  this.getCurrentLevel = function() {
+    console.log("start");
+    if (this.currentLevel == 0) {
+      console.log("level0");
+      if (this.turtleCount == 1) {
+        this.turtleCount = 0;
+        return 1;
+      }
+      else {
+        return 0;
+      }
+    }
+    else if (this.currentLevel == 1) {
+      console.log("level1");
+      if (this.turtleCount == 3) {
+        this.turtleCount = 0;
+        return 2;
+      }
+      else {
+        return 1;
+      }
+    }
+    else if (this.currentLevel == 2) {
+      if (this.turtleCount == 4) {
+        return 3;
+      }
+      else {
+        return 2;
+      }
+    }
+    console.log("end");
   }
 
 }
@@ -104,6 +163,8 @@ var intro2 = ['It has been 10 years since you have lost Powder, your pet turtle.
 var sonictalk = ['HEY! Have you seen my missing turtle? I have not seen him in a week. Everyone I know has lost their turtles. Unfortunately all of the pictures in the missing turtle posters are messed up by some evil force. Hm, here are a lot of turtles in this place. Take some missing turtle flyers.', ' Tap twice to exit speech.'];
 
 var npctalk = ['me: Im gonna help find and return these turtles.', 'me to me: Steal them and keep them all for yourself'];
+
+var sampleText = ['This is sample text that will be replaced', 'by the real text later...'];
 
 var profpixeltalk = ['Oh no! You figured out my secret image forumulas! You better not take my last turtles!'];
 
@@ -201,7 +262,7 @@ function compareImages(firstImage, secondImage){
 //Collision handler for NPCs
 var npcCollision = function(player, npc){
   TA.createDiaFlag = true;
-  sayDialogue(npc);
+  sayDialogue(npc.dialogue);
 }
 
 //collision handler for Turtles
