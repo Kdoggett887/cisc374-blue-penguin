@@ -8,12 +8,11 @@ var preloadState = {
     game.load.script('gray', 'js/lib/filters/Gray.js');
 
     game.load.image('background','images/darkback.jpg');
-    game.load.image('npc','assets/sprites/sonic_havok_sanity.png');
-    game.load.image('player','assets/sprites/phaser-dude.png');
+    game.load.image('npc','images/sprites/sonic_havok_sanity.png');
 
 
     game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
-    game.load.image('pic', 'images/underwater3.png');
+    game.load.image('pic', 'assets/skies/underwater3.png');
 
     game.load.spritesheet('emptyButton', 'assets/buttons/flixel-button.png', 80, 20);
     game.load.image('turtlePic1', 'assets/turtles/turtle_1.jpg');
