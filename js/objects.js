@@ -2,6 +2,8 @@
 
 Turtle = function(x, y, game, sprite, shaderList){
   Phaser.Sprite.call(this, game, x, y, sprite);
+  
+  this.shaderList = shaderList; //note format: [[shaderObject, filterStringName, numPasses], [....]]
 
   this.shaderList = shaderList;
   this.game.physics.arcade.enableBody(this);

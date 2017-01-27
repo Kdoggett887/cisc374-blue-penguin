@@ -24,7 +24,7 @@ var TA = new function(){
 
 
   this.level0 = new function() {
-    this.turtle;
+    this.turtleGroup;
     this.fakeKiwi;
     this.npc;
     this.completedPuzzle = false;
@@ -33,6 +33,18 @@ var TA = new function(){
     this.reset = function() {
       this.startingLevel = true;
       this.completedPuzzle = false;
+    }
+    
+    this.checkTurtlesDone = function() {
+      console.log("checking da turtdles");
+      console.log(TA.level0);
+      if(TA.level0.turtleGroup.length == 0){
+        console.log("found all the turtles on this level");
+        game.state.start(TA.level0.nextLevel);
+      }
+      else{
+        console.log("look for more turtles");
+      }
     }
   }
 
@@ -191,6 +203,17 @@ var npcCollision = function(player, npc){
   sayDialogue(npc);
 }
 
+//collision handler for Turtles
+var stateChangeCollision = function(obj1, obj2){
+  if (!TA.level0.completedPuzzle) {
+    TA.playerX = obj1.body.center.x;
+    TA.playerY = obj2.body.center.y;
+    TA.currentTurtle = obj2;
+    game.state.start('Image');
+  }
+}
+
+
 function onTap(pointer, doubleTap) {
    if (doubleTap)
    {
@@ -201,6 +224,7 @@ function onTap(pointer, doubleTap) {
      }
    }
 }
+
 
 function setupUpdate() {
   player.body.velocity.setTo(0, 0);

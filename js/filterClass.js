@@ -182,19 +182,24 @@ function filterClass(game, imageKey, shaders) {
 
     function completeFilter() {
         if (compareImages(cleanImage, filterImage)) {
-            completedPuzzle1 = true;
+          
+          completedPuzzle1 = true;
 
-            console.log("u win");
-            TA.currentTurtle = null;
-
-          var nextLevel = TA.currentLevel + 1;
-          var nextLevelName = "Level" + nextLevel;
-          if(nextLevel <= 3){
-            game.state.start(nextLevelName);
-          }
-          else{
-            game.state.start("GameOver");
-          }
+          console.log("u win");
+          
+          
+          
+          TA.currentTurtle.destroy();
+          TA.currentTurtle = null;
+          
+          TA.level0.checkTurtlesDone();
+          
+          //console.log(TA.currentLevel);
+          //console.log(currentLevel.turtleGroup);
+          
+          //if(TA.currentLevel.turtleGroup.length == 0){
+          //  game.state.start(TA.currentLevel.nextLevel);
+          //}
 
         }
         else{
