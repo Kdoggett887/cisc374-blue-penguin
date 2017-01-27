@@ -1,11 +1,17 @@
 var imageState = {
 
+  puzzle: null,
+
   create: function(){
     //format for shader list: [[shader, textName, passes]
-    var puzzle = new filterClass(game, 'turtlePic1', [[blurShader, "BLUR",2], [arithmeticAddShader,"ADD",1], [grayscaleShader, "GRAYSCALE",1]]);
+    this.puzzle = new filterClass(game, 'turtlePic1', [[blurShader, "BLUR",2], [arithmeticAddShader,"ADD",1], [grayscaleShader, "GRAYSCALE",1]]);
     //var puzzle = new filterClass(game, 'turtlePic1', [[blurShader, "BLUR", 1]])
-    puzzle.setup();
+    this.puzzle.setup();
 
+  },
+
+  update: function(){
+    this.puzzle.checkSliderPosition(null);
   },
 
   toGame: function(){

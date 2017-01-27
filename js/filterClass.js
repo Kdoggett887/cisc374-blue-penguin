@@ -9,6 +9,7 @@ function filterClass(game, imageKey, shaders) {
     this.filters = [];
     this.shaders = shaders;
     var slideButton;
+    var sliderText;
 
     var cameraTopX = game.camera.x + (game.width/2) - (game.camera.width/2);
     var cameraTopY = game.camera.y + (game.height/2) - (game.camera.height/2);
@@ -19,7 +20,7 @@ function filterClass(game, imageKey, shaders) {
       this.makeFilters();
       this.setupImages(game, this.imageKey, this.filters);
       this.setupButtons();
-      //this.setupSlider();
+      this.setupSlider(null, null);
 
 
     }
@@ -66,21 +67,42 @@ function filterClass(game, imageKey, shaders) {
     completeButton.scale.setTo(2,2);
   }
 
-  this.setupSlider = function(){
-    slideButton = game.add.sprite(50, 300, 'slider');
+    this.setupSlider = function(index, shader){
+      slideButton = game.add.sprite(50, 300, 'slider');
 
-    slideButton.inputEnabled = true;
-    slideButton.input.enableDrag();
-    slideButton.input.allowVerticalDrag = false;
+      slideButton.inputEnabled = true;
+      slideButton.input.enableDrag();
+      slideButton.input.allowVerticalDrag = false;
 
-    bounds = new Phaser.Rectangle(50, 300, 300, 100);
+      bounds = new Phaser.Rectangle(50, 300, 300, 100);
 
-    slideButton.input.boundsRect = bounds;
+      slideButton.input.boundsRect = bounds;
+      slideButton.numberOfSlides = 0;
 
-  }
+      sliderText = game.add.text(400, 300, "Blur: " + slideButton.numberOfSlides, {font: "25px Arial", fill: "#ffffff", wordWrap: true, wordWrapWidth: 700, align: "left"});
+
+    }
+
+    this.checkSliderPosition = function(index){
+      var x = slideButton.position.x;
+      var originalFilterValue = slideButton.numberOfSlides;
 
 
-  //FilterButton is a container class that holds a LabelButton (set up for filtering) and other variables, like the filter object to be applied.
+      //check the slider position
+      var diff = x - 50;
+      var slides = Math.floor(diff/75);
+
+
+      //if there is a difference, update slideButton and text
+      if(slides != originalFilterValue){
+        slideButton.numberOfSlides = slides;
+        sliderText.setText("Blur: " + slides);
+      }
+
+    }
+
+
+    //FilterButton is a container class that holds a LabelButton (set up for filtering) and other variables, like the filter object to be applied.
     var FilterButton = function(game, x, y, key, label, filter, overFrame, outFrame, downFrame, upFrame){
         this.filter = filter;
         //note: callbackContext is the FilterButton instance, not the LabelButton
@@ -166,7 +188,7 @@ function filterClass(game, imageKey, shaders) {
         }
         else{
           console.log("Images different...try again");
-          
+
         }
     }
 
