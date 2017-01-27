@@ -120,14 +120,14 @@ function wallCollision (obj1, obj2) {
   //console.log('wall hit');
 }
 
-function collidePerson(obj1, obj2){
-    if(!foundPerson){
-        foundPerson = true;
-        console.log("found sonic!");
-        turtle.visible = true;
-    }
-  npcCollision(obj1, obj2);
-}
+// function collidePerson(obj1, obj2){
+//     if(!foundPerson){
+//         foundPerson = true;
+//         console.log("found sonic!");
+//         turtle.visible = true;
+//     }
+//   npcCollision(obj1, obj2);
+// }
 
 
 
@@ -180,17 +180,21 @@ function compareImages(firstImage, secondImage){
     return true;
 }
 
-
+//Collision handler for NPCs
+var npcCollision = function(player, npc){
+  TA.createDiaFlag = true;
+  sayDialogue(npc);
+}
 
 function onTap(pointer, doubleTap) {
-  if (doubleTap)
-  {
-    //  They double-tapped, so swap the image
-    if(createDiaFlag == true){
-      console.log('ppppppppppp');
-      currentDialogue.removeText();
-    }
-  }
+   if (doubleTap)
+   {
+     //  They double-tapped, so swap the image
+     if(TA.createDiaFlag == true){
+       currentDialogue.removeText();
+       TA.createDiaFlag = false;
+     }
+   }
 }
 
 function setupUpdate() {
