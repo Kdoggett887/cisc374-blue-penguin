@@ -11,16 +11,16 @@ var Level1 = {
     this.nextLevel = "Level2";
 
     // Setup NPCs
-    TA.level1.turtleGroup = game.add.physicsGroup();
-    TA.level1.turtleGroup.classType = Turtle;
+    //TA.level1.turtleGroup = game.add.physicsGroup();
+    //TA.level1.turtleGroup.classType = Turtle;
     //TA.level1.turtleGroup.forEach(function(turtle){});
-    var turtleBlur = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 600, game, 'turtle', [[blurShader, "BLUR",2], [arithmeticAddShader,"ADD",1], [grayscaleShader, "GRAYSCALE",1]]);
-    var turtleBlur2 = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 700, game, 'turtle', [[grayscaleShader, "GRAYSCALE",1]]);
-    var turtleBlur3 = new Turtle(game.world.centerX/2 - 200, game.world.centerY/2 + 900, game, 'turtle', [[arithmeticAddShader,"ADD",1]]);
+    // var turtleBlur = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 600, game, sampleText, 'turtle', [[blurShader, "BLUR",2], [arithmeticAddShader,"ADD",1], [grayscaleShader, "GRAYSCALE",1]]);
+    // var turtleBlur2 = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 700, game, sampleText, 'turtle', [[grayscaleShader, "GRAYSCALE",1]]);
+    // var turtleBlur3 = new Turtle(game.world.centerX/2 - 200, game.world.centerY/2 + 900, game, sampleText,  'turtle', [[arithmeticAddShader,"ADD",1]]);
 
-    TA.level1.turtleGroup.add(turtleBlur);
-    TA.level1.turtleGroup.add(turtleBlur2);
-    TA.level1.turtleGroup.add(turtleBlur3);
+    //TA.level1.turtleGroup.add(turtleBlur);
+    //TA.level1.turtleGroup.add(turtleBlur2);
+    //TA.level1.turtleGroup.add(turtleBlur3);
 
 
 
@@ -30,10 +30,14 @@ var Level1 = {
     if(TA.level1.startingLevel){
       TA.level1.startingLevel = false;
       player = game.add.sprite(game.world.centerX, game.world._height - 200, 'kiwi');
-    }
-    else{
+      TA.level1.turtle1 = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 600, game, 'turtle', sampleText, [[arithmeticAddShader,"ADD",1], [grayscaleShader, "GRAYSCALE",1]]);
+      TA.level1.turtle2 = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 700, game, 'turtle', sampleText, [[grayscaleShader, "GRAYSCALE",1]]);
+      TA.level1.turtle3 = new Turtle(game.world.centerX/2 - 200, game.world.centerY/2 + 900, game, 'turtle', sampleText, [[arithmeticAddShader,"ADD",1]]);
+
+    } else{
       //if persisting data put it in here
       player = game.add.sprite(TA.playerX, TA.playerY, 'kiwi');
+      
     }
 
 
@@ -72,7 +76,10 @@ var Level1 = {
       //game.physics.arcade.collide(player, TA.level0.npc, this.firstPersonCollision, null, this);
       //game.physics.arcade.collide(player, TA.level0.turtle, this.stateChangeCollision, null, this);
       game.physics.arcade.collide(player, wallGroup, wallCollision, null, this);
-      game.physics.arcade.collide(player, TA.level1.turtleGroup, stateChangeCollision, null, this);
+      game.physics.arcade.collide(player, TA.level1.turtle1, stateChangeCollision, null, this);
+      game.physics.arcade.collide(player, TA.level1.turtle2, stateChangeCollision, null, this);
+      game.physics.arcade.collide(player, TA.level1.turtle3, stateChangeCollision, null, this);
+      //game.physics.arcade.collide(player, TA.level1.turtleGroup, stateChangeCollision, null, this);
       //game.physics.arcade.collide(player, TA.level0.fakeKiwi, this.firstPersonCollision, null, this);
 
   },

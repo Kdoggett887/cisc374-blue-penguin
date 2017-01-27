@@ -65,6 +65,9 @@ var TA = new function(){
 
   this.level1 = new function() {
     this.turtleGroup;
+    this.turtle1;
+    this.turtle2;
+    this.turtle3;
     this.startingLevel = true;
     this.completedPuzzle = false;
 
