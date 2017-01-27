@@ -183,8 +183,9 @@ function filterClass(game, imageKey, shaders) {
     function completeFilter() {
         if (compareImages(cleanImage, filterImage)) {
             completedPuzzle1 = true;
-          console.log("u win");
-            game.state.start("GameOver");
+            console.log("u win");
+            TA.currentTurtle = null;
+            game.state.start("Level1");
         }
         else{
           console.log("Images different...try again");

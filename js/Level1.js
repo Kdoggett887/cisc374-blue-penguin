@@ -50,6 +50,9 @@ var Level1 = {
 
   // All collision handlers for the level
   addCollisions: function() {
+    game.physics.arcade.collide(player, wallGroup, wallCollision, null, this);
+    game.physics.arcade.collide(player, TA.level0.npc, this.firstPersonCollision, null, this);
+    game.physics.arcade.collide(player, TA.level0.turtle, this.stateChangeCollision, null, this);
 
   }
 
