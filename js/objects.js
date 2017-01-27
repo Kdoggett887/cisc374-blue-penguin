@@ -1,12 +1,9 @@
 
 
-Turtle = function(x, y, game, sprite, message){
-  this.message = message;
+Turtle = function(x, y, game, sprite, shaderList){
   Phaser.Sprite.call(this, game, x, y, sprite);
-  //this.x = x;
-  //this.y = y;
-
-  //this.message = message;
+  
+  this.shaderList = shaderList;
 
   this.enableBody = true;
   //this.body.moves = false;

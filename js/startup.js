@@ -9,12 +9,14 @@ var TA = new function(){
   this.startingGame = true;
   this.foundPerson = false;
   this.solvedTurtle = false;
+  this.currentTurtle = null;
 
   this.resetGlobals = function() {
     this.createDiaFlag = false;
     this.startingGame = true;
     this.foundPerson = false;
     this.solvedTurtle = false;
+    this.currentTurtle = null;
   }
 
 
