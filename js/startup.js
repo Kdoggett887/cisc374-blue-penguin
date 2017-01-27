@@ -10,6 +10,7 @@ var TA = new function(){
   this.foundPerson = false;
   this.solvedTurtle = false;
   this.currentTurtle = null;
+  this.currentLevel = 0;
 
   this.resetGlobals = function() {
     this.createDiaFlag = false;
@@ -17,6 +18,7 @@ var TA = new function(){
     this.foundPerson = false;
     this.solvedTurtle = false;
     this.currentTurtle = null;
+    this.currentLevel = 0;
   }
 
 

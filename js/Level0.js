@@ -9,6 +9,7 @@ var Level0 = {
     // Setup World
     game.add.tileSprite(0, 0, 1920, 1920, 'background');
     game.world.setBounds(0, 0, 1920, 1920);
+    TA.currentLevel = 0;
 
     // Setup NPCs
     TA.level0.fakeKiwi = new NPC(200, 100, game, 'kiwi', npctalk);
@@ -16,7 +17,7 @@ var Level0 = {
 
     // Setup Player/Turtles
     if(TA.level0.startingLevel){
-      TA.level0.turtle = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 600, game, 'turtle', content);
+      TA.level0.turtle = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 600, game, 'turtle', [[blurShader, "BLUR", 1],[grayscaleShader, "GRAYSCALE", 1], [arithmeticAddShader,"ADD", 0]]);
       player = game.add.sprite(game.world.centerX, game.world._height - 200, 'kiwi');
       TA.level0.startingLevel = false;
     }
@@ -66,6 +67,7 @@ var Level0 = {
     if (!TA.level0.completedPuzzle) {
         TA.playerX = obj1.body.center.x;
         TA.playerY = obj2.body.center.y;
+      TA.currentTurtle = obj2;
         game.state.start('Image');
     }
   },

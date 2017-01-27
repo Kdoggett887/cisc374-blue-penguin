@@ -8,6 +8,7 @@ var Level1 = {
     // Setup World
     game.add.tileSprite(0, 0, 1920, 1920, 'background');
     game.world.setBounds(0, 0, 1920, 1920);
+    TA.currentLevel = 1;
 
     // Setup NPCs
 
