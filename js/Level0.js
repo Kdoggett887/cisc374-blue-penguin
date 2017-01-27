@@ -35,78 +35,7 @@ var Level0 = {
 
     game.input.onTap.add(onTap, this);
 
-
-
-    var level = [
-      '                                                       ',
-      '                                                       ',
-      '                                                       ',
-      '                                                       ',
-      '                              ',
-      '                              ',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '  ',
-      '   ',
-      ' ',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '              xxxxxxxxxxxxxxxxxxxxxxxx             ',
-      '              x                      x',
-      '              x                      x',
-      '              x                      x',
-      '              x                      x',
-      '              x                      x',
-      '              x                      x',
-      '              x                      x',
-      '              x                      x',
-      '              x                      x',
-      '              x                      x',
-      '              x                      x',
-      '              x                      x',
-      '              x                      x',
-      '              x                      x',
-      '              x                      x',
-      '              x                      x',
-      '              x                      x',
-      '              x                      x',
-      '              x                      x',
-      '              xxxxxxxxxx     xxxxxxxxx             ',
-    ];
-
-
-
-    for (var i = 0; i < level.length; i++) {
-      for (var j = 0; j < level[i].length; j++) {
-
-        // Create a wall and add it to the 'walls' group
-        if (level[i][j] == 'x') {
-          var wall = game.add.sprite(32+32*j, 32+32*i, 'wall');
-          wallGroup.add(wall);
-          wall.body.immovable = true;
-        }
-      }
-    }
-
-
+    buildLevel(Levels.level0);
 
   },
 
