@@ -14,6 +14,10 @@ var Level2 = {
 
     // Setup Player
     if(TA.level2.startingLevel){
+      TA.level2.turtleRed = new Turtle(game.world.centerX - 650, game.world.centerY - 200, game, 'turtle', content);
+      TA.level2.turtleGreen = new Turtle(game.world.centerX + 400, game.world.centerY + 100, game, 'turtle', content);
+      TA.level2.turtleBlue = new Turtle(game.world.centerX - 650, game.world.centerY + 400, game, 'turtle', content);
+      TA.level2.turtleFinal = new Turtle(game.world.centerX, game.world.centerY - 800, game, 'turtle', content);
       TA.level2.startingLevel = false;
       player = game.add.sprite(game.world.centerX, game.world._height - 200, 'kiwi');
     }
@@ -25,7 +29,11 @@ var Level2 = {
 
     // Add physics for all sprites
     game.physics.startSystem(Phaser.Physics.ARCADE);
-    game.physics.enable([player], Phaser.Physics.ARCADE);
+    game.physics.enable([player, TA.level2.turtleRed, TA.level2.turtleGreen, TA.level2.turtleBlue, TA.level2.turtleFinal], Phaser.Physics.ARCADE);
+    TA.level0.turtleRed.body.immovable = true;
+    TA.level0.turtleGreen.body.immovable = true;
+    TA.level0.turtleBlue.body.immovable = true;
+    TA.level0.turtleFinal.body.immovable = true;
     player.fixedRotation = true;
     game.camera.follow(player);
 
@@ -50,6 +58,7 @@ var Level2 = {
 
   // All collision handlers for the level
   addCollisions: function() {
+    game.physics.arcade.collide(player, wallGroup, wallCollision, null, this);
 
   }
 

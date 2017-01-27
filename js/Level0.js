@@ -25,13 +25,13 @@ var Level0 = {
       player = game.add.sprite(TA.playerX, TA.playerY, 'kiwi');
     }
 
-    game.camera.follow(player);
 
     // Add physics for all sprites
     game.physics.startSystem(Phaser.Physics.ARCADE);
     game.physics.enable([player, TA.level0.turtle], Phaser.Physics.ARCADE);
     TA.level0.turtle.body.immovable = true;
     player.fixedRotation = true;
+    game.camera.follow(player);
 
 
 
