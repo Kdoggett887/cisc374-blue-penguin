@@ -93,6 +93,7 @@ var TA = new function(){
   this.level3 = new function() {
     this.startingLevel = true;
     this.completedPuzzle = false;
+    this.profpixel;
 
     this.reset = function() {
       this.startingLevel = true;
@@ -163,7 +164,7 @@ var npctalk = ['me: Im gonna help find and return these turtles.', 'me to me: St
 
 var sampleText = ['This is sample text that will be replaced', 'by the real text later...'];
 
-
+var profpixeltalk = ['Oh no! You figured out my secret image forumulas! You better not take my last turtles!'];
 
 
 var player;

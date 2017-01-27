@@ -12,7 +12,8 @@ var introState = {
     //introSlideText = game.add.text(80, 80, intro2[0], {font: "25px Arial", fill: "#ffffff" });
     var introStyle = { font: "32px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: 700, align: "center", backgroundColor: "#ffff00" };
 
-    introSlideText = game.add.text(game.world.centerX - 40, game.world.centerY - 50, intro,{font: "25px Arial", fill: "#ffffff", wordWrap: true, wordWrapWidth: 700, align: "left"} );
+
+    introSlideText = game.add.text(game.camera.width/2 - 50, game.camera.height/2 - 50, intro,{font: "25px Arial", fill: "#ffffff", wordWrap: true, wordWrapWidth: 700, align: "left"} );
     introSlideText.anchor.set(0.5);
     //this.textBoxLength = intro.length;
 
