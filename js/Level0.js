@@ -18,7 +18,7 @@ var Level0 = {
 
     // Setup Player/Turtles
     if(TA.level0.startingLevel){
-      TA.level0.turtle = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 600, game, 'turtle', sampleText, [[grayscaleShader, "GREYSCALE", 1]]);
+      TA.level0.turtle = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 600, game, 'turtle', level0GrayText, [[grayscaleShader, "GREYSCALE", 1]]);
       // TA.level0.turtleGroup = game.add.physicsGroup();
       // TA.level0.turtleGroup.classType = Turtle;
       //

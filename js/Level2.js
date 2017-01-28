@@ -16,9 +16,9 @@ var Level2 = {
     // Setup Player
     if(TA.level2.startingLevel){
       TA.level2.turtleRed = new Turtle(game.world.centerX - 650, game.world.centerY - 200, game, 'turtle', sampleText, [[removeRedShader, "RED", 1],[grayscaleShader, "GRAYSCALE", 0], [arithmeticAddShader,"ADD", 0]]);
-      TA.level2.turtleGreen = new Turtle(game.world.centerX + 400, game.world.centerY + 100, game, 'turtle', sampleText, [[removeGreenShader, "GREEN", 1]]);
-      TA.level2.turtleBlue = new Turtle(game.world.centerX - 650, game.world.centerY + 400, game, 'turtle', sampleText, [[removeBlueShader, "BLUE", 1]]);
-      TA.level2.turtleFinal = new Turtle(game.world.centerX, game.world.centerY - 800, game, 'turtle', sampleText, [[removeRedShader, "RED", 1], [removeGreenShader, "GREEN", 1], [removeBlueShader, "BLUE", 0]]);
+      //TA.level2.turtleGreen = new Turtle(game.world.centerX + 400, game.world.centerY + 100, game, 'turtle', sampleText, [[removeGreenShader, "GREEN", 1]]);
+      //TA.level2.turtleBlue = new Turtle(game.world.centerX - 650, game.world.centerY + 400, game, 'turtle', sampleText, [[removeBlueShader, "BLUE", 1]]);
+      //TA.level2.turtleFinal = new Turtle(game.world.centerX, game.world.centerY - 800, game, 'turtle', sampleText, [[removeRedShader, "RED", 1], [removeGreenShader, "GREEN", 1], [removeBlueShader, "BLUE", 0]]);
       TA.level2.startingLevel = false;
       player = game.add.sprite(game.world.centerX, game.world._height - 200, 'kiwi');
     }
@@ -30,11 +30,11 @@ var Level2 = {
 
     // Add physics for all sprites
     game.physics.startSystem(Phaser.Physics.ARCADE);
-    game.physics.enable([player, TA.level2.turtleRed, TA.level2.turtleGreen, TA.level2.turtleBlue, TA.level2.turtleFinal], Phaser.Physics.ARCADE);
+    game.physics.enable([player, TA.level2.turtleRed], Phaser.Physics.ARCADE); //, TA.level2.turtleGreen, TA.level2.turtleBlue, TA.level2.turtleFinal
     TA.level2.turtleRed.body.immovable = true;
-    TA.level2.turtleGreen.body.immovable = true;
-    TA.level2.turtleBlue.body.immovable = true;
-    TA.level2.turtleFinal.body.immovable = true;
+    //TA.level2.turtleGreen.body.immovable = true;
+    //TA.level2.turtleBlue.body.immovable = true;
+    //TA.level2.turtleFinal.body.immovable = true;
     player.fixedRotation = true;
     game.camera.follow(player);
 

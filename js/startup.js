@@ -175,6 +175,10 @@ var sampleText = ['This is sample text that will be replaced', 'by the real text
 
 var profpixeltalk = ['Oh no! You figured out my secret image forumulas! You better not take my last turtles!'];
 
+var level2RedText = ['This red filter will REMOVE the red in this picture. Match the images!'];
+var level1AddText = ['This add filter will brighten picture. Match the images!'];
+var level0GrayText = ['This gray filter will change the color pixels in to values in grayscale. Match the images!']
+
 
 var player;
 var npc;
