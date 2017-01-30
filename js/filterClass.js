@@ -188,6 +188,8 @@ function filterClass(game, imageKey, shaders) {
 
     function pushFilter(image, filter) {
 
+      //check if filter is greyscale and greyscale already has 1 filter, if it does don't allow
+      if(!(filter.name == "GREYSCALE" && filterCounter["GREYSCALE"] == 1)){
         if (image.filters == null) {
             image.filters = [ filter ];
         }
@@ -203,6 +205,8 @@ function filterClass(game, imageKey, shaders) {
         //now handle updating of filterCounter object
         var name = filter.name;
         filterCounter[name]++;
+      }
+
     }
 
     function popFilter(image) {

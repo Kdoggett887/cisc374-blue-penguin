@@ -11,9 +11,9 @@ var Level1 = {
 
     // Setup NPCs
 
-    TA.level1.turtle1 = new Turtle(game.world.centerX/2 - 200, game.world.centerY/2 + 900, game, 'turtle', sampleText, [[grayscaleShader, "GRAYSCALE",1]]);
-    TA.level1.turtle2 = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 700, game, 'turtle', level1AddText, [[arithmeticAddShader,"ADD",1],[grayscaleShader,"GRAY",0]]);
-    TA.level1.turtle3 = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 600, game, 'turtle', sampleText, [[arithmeticAddShader,"ADD",1], [grayscaleShader, "GRAYSCALE",1]]);
+    TA.level1.turtle1 = new Turtle(game.world.centerX/2 - 200, game.world.centerY/2 + 900, game, 'turtle', sampleText, [[grayscaleShader, "GREYSCALE",1]]);
+    TA.level1.turtle2 = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 700, game, 'turtle', level1AddText, [[arithmeticAddShader,"ADD",1],[grayscaleShader,"GREYSCALE",0]]);
+    TA.level1.turtle3 = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 600, game, 'turtle', sampleText, [[arithmeticAddShader,"ADD",1], [grayscaleShader, "GREYSCALE",1]]);
 
     var turtleList = [TA.level1.turtle1, TA.level1.turtle2, TA.level1.turtle3];
     TA.setTurtleVisibility(turtleList);

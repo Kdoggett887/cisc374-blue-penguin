@@ -10,7 +10,7 @@ var Level2 = {
     game.world.setBounds(0, 0, 1920, 1920);
     // Setup NPCs
 
-    TA.level2.turtleRed = new Turtle(game.world.centerX - 650, game.world.centerY + 400, game, 'turtle', sampleText, [[removeRedShader, "RED", 1],[grayscaleShader, "GRAYSCALE", 0], [arithmeticAddShader,"ADD", 0]]);
+    TA.level2.turtleRed = new Turtle(game.world.centerX - 650, game.world.centerY + 400, game, 'turtle', sampleText, [[removeRedShader, "RED", 1],[grayscaleShader, "GREYSCALE", 0], [arithmeticAddShader,"ADD", 0]]);
     TA.level2.turtleGreen = new Turtle(game.world.centerX + 400, game.world.centerY + 100, game, 'turtle', sampleText, [[removeGreenShader, "GREEN", 1]]);
     TA.level2.turtleBlue = new Turtle(game.world.centerX - 650, game.world.centerY - 200, game, 'turtle', sampleText, [[removeBlueShader, "BLUE", 1]]);
     TA.level2.turtleFinal = new Turtle(game.world.centerX, game.world.centerY - 800, game, 'turtle', sampleText, [[removeRedShader, "RED", 1], [removeGreenShader, "GREEN", 1], [removeBlueShader, "BLUE", 0]]);

@@ -138,7 +138,7 @@ var solvedTurtle = false;
 
 content = ['hello darkness my old friend', "zz zzz zzzz zzzz zzz zzz z z z z z z z z z z zz zzzz zzzz zzzz zzzz zzzzz", 'you found a key', "orange peels"];
 
-var intro = ['It has been 10 years since you have lost Powder, your pet turtle. Recently a string of turtle disappearances have occurred. You have gotten a lead that there have been some turtle sightings at the Professor Pixel mansion. Unfortunately all the wanted pictures of missing turtles are all distorted. It is up to you to match the turtles you find to their rightful owners.'];
+var intro = ['It has been 10 years since you lost Powder, your pet turtle. Recently a string of turtle disappearances have occurred. You have gotten a lead that there have been some turtle sightings at the Professor Pixel mansion. Unfortunately all the wanted pictures of missing turtles are distorted. It is up to you to match the turtles you find to their rightful owners.'];
 
 var intro2 = ['It has been 10 years since you have lost Powder, your pet turtle.', "Recently a string of turdle disappearances have occured.", 'You have gotten a lead that there have been some turtle sightings at the Professor Pixel mansion.', "Unfortunetly all the wanted pictures of missing turtles are all distorted.", 'It is up to you to match the turtles you find to their rightful owners'];
 
@@ -152,7 +152,7 @@ var profpixeltalk = ['Oh no! You figured out my secret image forumulas! You bett
 
 var level2RedText = ['This red filter will REMOVE the red in this picture. Match the images!'];
 var level1AddText = ['This add filter will brighten picture. Match the images!'];
-var level0GrayText = ['This gray filter will change the color pixels in to values in grayscale. Match the images!']
+var level0GrayText = ['This gray filter will change the color pixels in to values in grayscale. Match the images! Hint: Adding Greyscale more than once will not change the picture.']
 
 
 var player;
