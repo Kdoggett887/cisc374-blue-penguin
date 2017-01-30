@@ -74,7 +74,7 @@ function filterClass(game, imageKey, shaders) {
   this.setupCounters = function(){
     //x values will start at 50px, and first line will be at y = 500px
     xStart = 50;
-    yStart = 500;
+    yStart = 400;
 
     //work through each shader to get the text down and setup hash
     for(i = 0; i < this.shaders.length; i++){

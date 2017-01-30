@@ -7,8 +7,6 @@ var TA = new function(){
   this.playerX;
   this.playerY;
   this.startingGame = true;
-  this.foundPerson = false;
-  this.solvedTurtle = false;
   this.currentTurtle = null;
   this.currentLevel = 0;
 
@@ -18,10 +16,8 @@ var TA = new function(){
   this.resetGlobals = function() {
     this.createDiaFlag = false;
     this.startingGame = true;
-    this.foundPerson = false;
-    this.solvedTurtle = false;
     this.currentTurtle = null;
-    //this.currentLevel = 0;
+    this.currentLevel = 0;
   }
 
 
@@ -38,29 +34,6 @@ var TA = new function(){
       this.completedPuzzle = false;
     }
 
-
-    this.isFinishedLevel = function() {
-      if (this.completedPuzzle) {
-        return true;
-
-      }
-      else {
-        return false;
-      }
-    }
-
-
-    // this.checkTurtlesDone = function() {
-    //   console.log("checking da turtdles");
-    //   console.log(TA.level0);
-    //   if(TA.level0.turtleGroup.length == 0){
-    //     console.log("found all the turtles on this level");
-    //     game.state.start(TA.level0.nextLevel);
-    //   }
-    //   else{
-    //     console.log("look for more turtles");
-    //   }
-    // }
   }
 
   this.level1 = new function() {
@@ -76,9 +49,6 @@ var TA = new function(){
       this.completedPuzzle = false;
     }
 
-    this.isFinishedLevel = function() {
-      return false;
-    }
   }
 
   this.level2 = new function() {
@@ -107,16 +77,17 @@ var TA = new function(){
   }
 
 
-  this.allLevels = [this.level0, this.level1, this.level2, this.level3];
-
+  // Handles changing the current level state
+  // also resets turtleCount and sets currentLevel
   this.changeCurrentLevel = function() {
-    console.log("getting current level");
-    // return this.currentLevel;
     if (this.currentLevel == 0) {
       if (this.turtleCount == 1) {
         this.turtleCount = 0;
         this.currentLevel = 1;
         game.state.start('Level1');
+      }
+      else {
+        game.state.start('Level0');
       }
     }
     else if (this.currentLevel == 1) {
@@ -124,6 +95,9 @@ var TA = new function(){
         this.turtleCount = 0;
         this.currentLevel = 2;
         game.state.start('Level2');
+      }
+      else {
+        game.state.start('Level1');
       }
     }
     else if (this.currentLevel == 2) {
@@ -133,6 +107,18 @@ var TA = new function(){
         game.state.start('Level3');
       }
 
+      else {
+        game.state.start('Level2');
+      }
+    }
+  }
+
+  this.setTurtleVisibility = function(turtleList) {
+    for (var i = 0; i < turtleList.length; i++) {
+      if (i == this.turtleCount) {
+        turtleList[i].visible = true;
+      }
+      else turtleList[i].visible = false;
     }
   }
 }
