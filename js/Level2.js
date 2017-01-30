@@ -56,7 +56,7 @@ var Level2 = {
     game.input.onTap.add(onTap, this);
 
     // Builds the level using a layout
-    wallGroup = game.add.physicsGroup();
+    TA.wallGroup = game.add.physicsGroup();
     buildLevel(Levels.level2);
 
   },
@@ -72,7 +72,7 @@ var Level2 = {
 
   // All collision handlers for the level
   addCollisions: function() {
-    game.physics.arcade.collide(player, wallGroup, wallCollision, null, this);
+    game.physics.arcade.collide(player, TA.wallGroup, wallCollision, null, this);
     game.physics.arcade.collide(player, TA.level2.turtleRed, stateChangeCollision, null, this);
     game.physics.arcade.collide(player, TA.level2.turtleGreen, stateChangeCollision, null, this);
     game.physics.arcade.collide(player, TA.level2.turtleBlue, stateChangeCollision, null, this);

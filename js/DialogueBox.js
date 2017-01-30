@@ -52,13 +52,20 @@ var DialogueBox = function(x, y, messageArray){
 
   }
 
+  this.removeText = function() {
+    this.textBG.alpha = 0;
+    this.text.alpha = 0;
+    this.wordIndex = 0;
+    this.lineIndex = 0;
+  }
+
 
 
 
 
   this.nextLine = function() {
     console.log(this.content.length);
-      if (lineIndex === this.content.length)
+      if (this.lineIndex === this.content.length)
       {
           return;
       }
@@ -81,7 +88,7 @@ var DialogueBox = function(x, y, messageArray){
       //  Advance the word index to the next word in the line
       this.wordIndex++;
       //  Last word?
-      if (this.wordIndex === line.length)
+      if (this.wordIndex === this.line.length)
       {
           //  Add a carriage return
           this.text.text = this.text.text.concat("\n");
