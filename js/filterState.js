@@ -11,7 +11,11 @@ var imageState = {
   },
 
   update: function(){
-    this.puzzle.checkSliderPosition(null);
+
+    for(i = 0; i < this.puzzle.filters.length; i++){
+      this.puzzle.checkSliderPosition(i);
+    }
+
   },
 
   toGame: function(){

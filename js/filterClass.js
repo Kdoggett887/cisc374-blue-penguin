@@ -8,8 +8,9 @@ function filterClass(game, imageKey, shaders) {
     var filterImage = null;
     this.filters = [];
     this.shaders = shaders;
-    var slideButton;
-    var sliderText;
+    var slideButton = [];
+    var sliderText = [];
+    var hasGrayscale = false;
 
     var cameraTopX = game.camera.x + (game.width/2) - (game.camera.width/2);
     var cameraTopY = game.camera.y + (game.height/2) - (game.camera.height/2);
@@ -20,8 +21,10 @@ function filterClass(game, imageKey, shaders) {
       this.makeFilters();
       this.setupImages(game, this.imageKey, this.filters);
       this.setupButtons();
-      this.setupSlider(null, null);
 
+      for(i = 0; i < shaders.length; i++){
+        this.setupSlider(i, shaders[i]);
+      }
 
     }
 
@@ -68,24 +71,25 @@ function filterClass(game, imageKey, shaders) {
   }
 
     this.setupSlider = function(index, shader){
-      slideButton = game.add.sprite(50, 300, 'slider');
+      slideButton.push(game.add.sprite(50 , 300 + index*50, 'slider'));
 
-      slideButton.inputEnabled = true;
-      slideButton.input.enableDrag();
-      slideButton.input.allowVerticalDrag = false;
+      slideButton[index].inputEnabled = true;
+      slideButton[index].input.enableDrag();
+      slideButton[index].input.allowVerticalDrag = false;
 
-      bounds = new Phaser.Rectangle(50, 300, 300, 100);
+      bounds = new Phaser.Rectangle(50, 300 + index*50, 300, 100);
 
-      slideButton.input.boundsRect = bounds;
-      slideButton.numberOfSlides = 0;
+      slideButton[index].input.boundsRect = bounds;
+      slideButton[index].numberOfSlides = 0;
 
-      sliderText = game.add.text(400, 300, "Blur: " + slideButton.numberOfSlides, {font: "25px Arial", fill: "#ffffff", wordWrap: true, wordWrapWidth: 700, align: "left"});
+
+      sliderText.push(game.add.text(400, 300 + index*50, shader[1] + ": " + slideButton[index].numberOfSlides, {font: "25px Arial", fill: "#ffffff", wordWrap: true, wordWrapWidth: 700, align: "left"}));
 
     }
 
     this.checkSliderPosition = function(index){
-      var x = slideButton.position.x;
-      var originalFilterValue = slideButton.numberOfSlides;
+      var x = slideButton[index].position.x;
+      var originalFilterValue = slideButton[index].numberOfSlides;
 
 
       //check the slider position
@@ -93,10 +97,23 @@ function filterClass(game, imageKey, shaders) {
       var slides = Math.floor(diff/75);
 
 
+
       //if there is a difference, update slideButton and text
       if(slides != originalFilterValue){
-        slideButton.numberOfSlides = slides;
-        sliderText.setText("Blur: " + slides);
+        if(slides > originalFilterValue){
+          //push a filter on
+          if(!(this.shaders[index][1] == "GRAYSCALE" && hasGrayscale == true)){
+            pushFilter(cleanImage, this.filters[index]);
+          }
+
+        }
+        else{
+          //pop a filter
+          removeSpecificFilter(cleanImage, this.filters[index]);
+        }
+
+        slideButton[index].numberOfSlides = slides;
+        sliderText[index].setText(this.shaders[index][1] + ": " + slides);
       }
 
     }
@@ -145,12 +162,17 @@ function filterClass(game, imageKey, shaders) {
     }
 
     function pushFilter(image, filter) {
+
         if (image.filters == null) {
             image.filters = [ filter ];
         }
         else {
+
+
             image.filters.push(filter);
             image.filters = image.filters; //NOTE: only updates when you set it to itself, DO NOT DELETE
+
+
         }
     }
 
@@ -166,6 +188,25 @@ function filterClass(game, imageKey, shaders) {
         }
 
     }
+
+    function removeSpecificFilter(image, filter){
+      console.log(filter);
+      console.log("this is image filter below");
+      console.log(image.filters);
+      if (image.filters != null){
+        if (image.filters.length <= 1){
+          image.filters = null;
+        }
+        else{
+
+            image.filters.splice(i, 1);
+            image.filters = image.filters;
+            return;
+        
+        }
+      }
+    }
+
 
 
     //default callback for FilterButtons
