@@ -39,7 +39,7 @@ var Level0 = {
     game.input.onTap.add(onTap, this);
 
     // Builds the level using a layout
-    wallGroup = game.add.physicsGroup();
+    TA.wallGroup = game.add.physicsGroup();
     buildLevel(Levels.level0);
 
   },
@@ -58,7 +58,7 @@ var Level0 = {
     game.physics.arcade.collide(player, TA.level0.npc, this.firstPersonCollision, null, this);
     // game.physics.arcade.collide(player, TA.level0.turtleGroup, stateChangeCollision, null, this);
     game.physics.arcade.collide(player, TA.level0.turtle, stateChangeCollision, null, this);
-    game.physics.arcade.collide(player, wallGroup, wallCollision, null, this);
+    game.physics.arcade.collide(player, TA.wallGroup, wallCollision, null, this);
     game.physics.arcade.collide(player, TA.level0.fakeKiwi, this.firstPersonCollision, null, this);
   },
   // stateChangeCollision: function(obj1, obj2){
