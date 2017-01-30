@@ -6,7 +6,9 @@ var introState = {
 
 
   create: function(){
-    var labelButton = new LabelButton(game, 80, 520, "emptyButton", "Next", this.toMain, this); //changeText
+    var labelButton = new LabelButton(game, game.math.roundTo(game.width/2), game.math.roundTo(game.height/2) + 200, "emptyButton", "Next", this.toMain, this);
+    labelButton.scale.setTo(2.0, 2.0);
+
 
     //text2 = game.add.text(game.world.centerX - 40, game.world.centerY -50, "PRESS SPACE", style);
     //introSlideText = game.add.text(80, 80, intro2[0], {font: "25px Arial", fill: "#ffffff" });
@@ -29,6 +31,8 @@ var introState = {
     completedPuzzle1 = false;
     foundPerson = false;
     game.state.start("Level0");
+    // TA.currentLevel = 2
+    // game.state.start("Level2");
 
   },
 

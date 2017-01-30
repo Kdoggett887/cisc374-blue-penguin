@@ -117,13 +117,24 @@ var TA = new function(){
         this.turtleCount = 0;
         this.currentLevel = 1;
         game.state.start('Level1');
+        console.log("Starting level 1");
+      }
+      else {
+        game.state.start('Level0');
+        console.log("Starting level 0");
       }
     }
     else if (this.currentLevel == 1) {
+      console.log(TA.turtleCount);
       if (this.turtleCount == 3) {
         this.turtleCount = 0;
         this.currentLevel = 2;
         game.state.start('Level2');
+        console.log("Starting level 2");
+      }
+      else {
+        game.state.start('Level1');
+        console.log("Starting level 1");
       }
     }
     else if (this.currentLevel == 2) {
@@ -131,6 +142,12 @@ var TA = new function(){
         this.turtleCount = 0;
         this.currentLevel = 3;
         game.state.start('Level3');
+        console.log("Starting level 3");
+      }
+      else {
+        game.state.start('Level2');
+        console.log("Starting level 2");
+
       }
     }
   }

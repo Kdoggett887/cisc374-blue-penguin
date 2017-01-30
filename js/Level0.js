@@ -9,8 +9,6 @@ var Level0 = {
     // Setup World
     game.add.tileSprite(0, 0, 1920, 1920, 'background');
     game.world.setBounds(0, 0, 1920, 1920);
-    this.nextLevel = "Level1";
-    TA.currentlevel = 0;
 
     // Setup NPCs
     TA.level0.fakeKiwi = new NPC(200, 100, game, 'kiwi', npctalk);
