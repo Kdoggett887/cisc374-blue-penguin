@@ -16,6 +16,7 @@ var imageState = {
   },
 
   update: function(){
+    this.puzzle.updateCounters();
 
     //for(i = 0; i < this.puzzle.filters.length; i++){
     //  this.puzzle.checkSliderPosition(i);

@@ -109,43 +109,32 @@ var TA = new function(){
 
   this.allLevels = [this.level0, this.level1, this.level2, this.level3];
 
-  this.getCurrentLevel = function() {
+  this.changeCurrentLevel = function() {
     console.log("getting current level");
-    return this.currentLevel;
-    /*if (this.currentLevel == 0) {
-      console.log("level0");
+    // return this.currentLevel;
+    if (this.currentLevel == 0) {
       if (this.turtleCount == 1) {
         this.turtleCount = 0;
-        return 0;
+        this.currentLevel = 1;
+        game.state.start('Level1');
       }
-      else {
-        return 0;
-      }
-      return 0;
     }
     else if (this.currentLevel == 1) {
-      console.log("level1");
-      if (this.turtleCount == 1) {
+      if (this.turtleCount == 3) {
         this.turtleCount = 0;
-        return 1;
+        this.currentLevel = 2;
+        game.state.start('Level2');
       }
-      else {
-        return 1;
-      }
-      return 1;
     }
     else if (this.currentLevel == 2) {
-      if (this.turtleCount == 1) {
-        return 2;
+      if (this.turtleCount == 4) {
+        this.turtleCount = 0;
+        this.currentLevel = 3;
+        game.state.start('Level3');
       }
-      else {
-        return 2;
-        console.log('ELSE REGURN #');
-      }
-    }*/
-    //console.log("end");
-  }
 
+    }
+  }
 }
 
 

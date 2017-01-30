@@ -19,11 +19,7 @@ var Level0 = {
     // Setup Player/Turtles
     if(TA.level0.startingLevel){
       TA.level0.turtle = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 600, game, 'turtle', level0GrayText, [[grayscaleShader, "GREYSCALE", 1]]);
-      // TA.level0.turtleGroup = game.add.physicsGroup();
-      // TA.level0.turtleGroup.classType = Turtle;
-      //
-      // var tortlini = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 600, game, 'turtle', [[blurShader, "BLUR", 1],[grayscaleShader, "GRAYSCALE", 1], [arithmeticAddShader,"ADD", 0]]);
-      // TA.level0.turtleGroup.add(tortlini);
+      TA.level0.turtle.visible = false;
       player = game.add.sprite(game.world.centerX, game.world._height - 200, 'kiwi');
       TA.level0.startingLevel = false;
     }

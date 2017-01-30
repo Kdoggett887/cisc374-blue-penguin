@@ -8,6 +8,8 @@ function filterClass(game, imageKey, shaders) {
     var slideButton = [];
     var sliderText = [];
     var hasGrayscale = false;
+    var filterCounter = {};
+    var counterText = {};
 
     var cameraTopX = game.camera.x + (game.width/2) - (game.camera.width/2);
     var cameraTopY = game.camera.y + (game.height/2) - (game.camera.height/2);
@@ -18,10 +20,11 @@ function filterClass(game, imageKey, shaders) {
       this.makeFilters();
       this.setupImages(game, this.imageKey, this.filters);
       this.setupButtons();
+      this.setupCounters();
 
-      for(i = 0; i < shaders.length; i++){
-        this.setupSlider(i, shaders[i]);
-      }
+      //for(i = 0; i < shaders.length; i++){
+      //  this.setupSlider(i, shaders[i]);
+      //}
 
     }
 
@@ -65,6 +68,23 @@ function filterClass(game, imageKey, shaders) {
     var completeButton;
     completeButton = new LabelButton(game, cameraTopX + (game.camera.width/2), cameraTopY + 450, "emptyButton", "COMPLETE", completeFilter, completeButton);
     completeButton.scale.setTo(2,2);
+  }
+
+  //this will setup the counters for each filter in the bottom left corner
+  this.setupCounters = function(){
+    //x values will start at 50px, and first line will be at y = 500px
+    xStart = 50;
+    yStart = 500;
+
+    //work through each shader to get the text down and setup hash
+    for(i = 0; i < this.shaders.length; i++){
+      //initialize all to zero and push text into counterText array
+      var shaderName = this.shaders[i][1];
+
+      filterCounter[shaderName] = 0;
+      counterText[shaderName] = game.add.text(xStart, yStart + i*50, shaderName + ": " + filterCounter[shaderName], {font: "25px Arial", fill: "#ffffff", wordWrap: true, wordWrapWidth: 700, align: "left"});
+    }
+
   }
 
     this.setupSlider = function(index, shader){
@@ -158,6 +178,14 @@ function filterClass(game, imageKey, shaders) {
       }
     }
 
+    //ths will be used to check update the counters for the display
+    this.updateCounters = function(){
+      for (var key in filterCounter){
+        //set text within counterText object
+        counterText[key].setText(key + ": " + filterCounter[key]);
+      }
+    }
+
     function pushFilter(image, filter) {
 
         if (image.filters == null) {
@@ -171,17 +199,25 @@ function filterClass(game, imageKey, shaders) {
 
 
         }
+
+        //now handle updating of filterCounter object
+        var name = filter.name;
+        filterCounter[name]++;
     }
 
     function popFilter(image) {
         if (image.filters != null) {
             if (image.filters.length <= 1) {
+                var filter = image.filters.pop(image);
                 image.filters = null;
             }
             else {
-                image.filters.pop(image);
+                var filter = image.filters.pop(image);
                 image.filters = image.filters;
             }
+
+            //update count in the filterCoutner obj
+            filterCounter[filter.name]--;
         }
 
     }
@@ -220,9 +256,54 @@ function filterClass(game, imageKey, shaders) {
 
     function completeFilter() {
         if (compareImages(cleanImage, filterImage)) {
-            completedPuzzle1 = true;
-          console.log("u win");
-            game.state.start("GameOver");
+
+
+          // completedPuzzle1 = true;
+          //
+          // console.log("u win");
+          TA.turtleCount++;
+          console.log(TA.turtleCount);
+          TA.changeCurrentLevel();
+          // var currentLevel = TA.getCurrentLevel();
+          // console.log("currentlevel " + currentLevel);
+          //
+          //
+          // if (currentLevel == 0) {
+          //   game.state.start('Level1');
+          //   currentLevel++;
+          //   console.log('starting' + 'level1');
+          // }
+          // else if (currentLevel == 1) {
+          //   game.state.start('Level2');
+          //   currentLevel++;
+          //   console.log('starting' + 'level2');
+          // }
+          // else if (currentLevel == 2) {
+          //   game.state.start('Level3');
+          //   currentLevel++;
+          //   console.log('starting' + 'level3');
+          // }
+          // else if (currentLevel == 3) {
+          //   game.state.start('GameOver');
+          //   currentLevel++;
+          //   console.log('starting' + 'levelgameover');
+          // }
+
+
+          // TA.currentTurtle.destroy();
+          // TA.currentTurtle = null;
+
+          // TA.currentLevelDone
+
+          // TA.level0.checkTurtlesDone();
+
+          //console.log(TA.currentLevel);
+          //console.log(currentLevel.turtleGroup);
+
+          //if(TA.currentLevel.turtleGroup.length == 0){
+          //  game.state.start(TA.currentLevel.nextLevel);
+          //}
+
         }
         else{
           console.log("Images different...try again");
