@@ -15,6 +15,9 @@ var Level2 = {
     TA.level2.turtleBlue = new Turtle(game.world.centerX - 650, game.world.centerY - 200, game, 'turtle', sampleText, [[removeBlueShader, "BLUE", 1]]);
     TA.level2.turtleFinal = new Turtle(game.world.centerX, game.world.centerY - 800, game, 'turtle', sampleText, [[removeRedShader, "RED", 1], [removeGreenShader, "GREEN", 1], [removeBlueShader, "BLUE", 0]]);
 
+    var turtleList = [TA.level2.turtleRed, TA.level2.turtleGreen, TA.level2.turtleBlue, TA.level2.turtleFinal];
+    TA.setTurtleVisibility(turtleList);
+
     // Setup Player
     if(TA.level2.startingLevel){
       TA.level2.startingLevel = false;

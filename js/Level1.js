@@ -10,10 +10,13 @@ var Level1 = {
     game.world.setBounds(0, 0, 1920, 1920);
 
     // Setup NPCs
-    
+
     TA.level1.turtle1 = new Turtle(game.world.centerX/2 - 200, game.world.centerY/2 + 900, game, 'turtle', sampleText, [[grayscaleShader, "GRAYSCALE",1]]);
     TA.level1.turtle2 = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 700, game, 'turtle', level1AddText, [[arithmeticAddShader,"ADD",1],[grayscaleShader,"GRAY",0]]);
     TA.level1.turtle3 = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 600, game, 'turtle', sampleText, [[arithmeticAddShader,"ADD",1], [grayscaleShader, "GRAYSCALE",1]]);
+
+    var turtleList = [TA.level1.turtle1, TA.level1.turtle2, TA.level1.turtle3];
+    TA.setTurtleVisibility(turtleList);
 
     //TA.level1.turtleGroup = game.add.physicsGroup();
     //TA.level1.turtleGroup.add(turtleBlur2);
@@ -27,14 +30,6 @@ var Level1 = {
       player = game.add.sprite(game.world.centerX, game.world._height - 200, 'kiwi');
 
     } else{
-      //if persisting data put it in here
-      if (TA.turtleCount == 1) {
-        TA.level1.turtle1.visible = false;
-      }
-      else if (TA.turtleCount == 2) {
-        TA.level1.turtle1.visible = false;
-        TA.level1.turtle2.visible = false;
-      }
       player = game.add.sprite(TA.playerX, TA.playerY, 'kiwi');
 
     }
