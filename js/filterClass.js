@@ -1,6 +1,3 @@
-
-
-
 function filterClass(game, imageKey, shaders) {
     this.game = game;
     this.imageKey = imageKey;
@@ -202,7 +199,7 @@ function filterClass(game, imageKey, shaders) {
             image.filters.splice(i, 1);
             image.filters = image.filters;
             return;
-        
+
         }
       }
     }

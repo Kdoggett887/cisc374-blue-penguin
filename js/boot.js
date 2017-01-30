@@ -4,7 +4,7 @@ var bootState = {
   create: function(){
     WebFontConfig = { // load custom google fonts
       google: {
-        families: ['Coming Soon']
+        families: ['Coming Soon', 'Lilita One']
       }
     };
 

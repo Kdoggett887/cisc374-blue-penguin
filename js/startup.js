@@ -9,18 +9,25 @@ var TA = new function(){
   this.startingGame = true;
   this.foundPerson = false;
   this.solvedTurtle = false;
+  this.currentTurtle = null;
+  this.currentLevel = 0;
+
+  this.turtleCount = 0;
+
 
   this.resetGlobals = function() {
     this.createDiaFlag = false;
     this.startingGame = true;
     this.foundPerson = false;
     this.solvedTurtle = false;
+    this.currentTurtle = null;
+    //this.currentLevel = 0;
   }
 
 
 
   this.level0 = new function() {
-    this.turtle;
+    this.turtleGroup;
     this.fakeKiwi;
     this.npc;
     this.completedPuzzle = false;
@@ -30,9 +37,37 @@ var TA = new function(){
       this.startingLevel = true;
       this.completedPuzzle = false;
     }
+
+
+    this.isFinishedLevel = function() {
+      if (this.completedPuzzle) {
+        return true;
+
+      }
+      else {
+        return false;
+      }
+    }
+
+
+    // this.checkTurtlesDone = function() {
+    //   console.log("checking da turtdles");
+    //   console.log(TA.level0);
+    //   if(TA.level0.turtleGroup.length == 0){
+    //     console.log("found all the turtles on this level");
+    //     game.state.start(TA.level0.nextLevel);
+    //   }
+    //   else{
+    //     console.log("look for more turtles");
+    //   }
+    // }
   }
 
   this.level1 = new function() {
+    this.turtleGroup;
+    this.turtle1;
+    this.turtle2;
+    this.turtle3;
     this.startingLevel = true;
     this.completedPuzzle = false;
 
@@ -40,11 +75,19 @@ var TA = new function(){
       this.startingLevel = true;
       this.completedPuzzle = false;
     }
+
+    this.isFinishedLevel = function() {
+      return false;
+    }
   }
 
   this.level2 = new function() {
     this.startingLevel = true;
     this.completedPuzzle = false;
+    this.turtleRed;
+    this.turtleGreen;
+    this.turtleBlue;
+    this.turtleFinal;
 
     this.reset = function() {
       this.startingLevel = true;
@@ -55,11 +98,52 @@ var TA = new function(){
   this.level3 = new function() {
     this.startingLevel = true;
     this.completedPuzzle = false;
+    this.profpixel;
 
     this.reset = function() {
       this.startingLevel = true;
       this.completedPuzzle = false;
     }
+  }
+
+
+  this.allLevels = [this.level0, this.level1, this.level2, this.level3];
+
+  this.getCurrentLevel = function() {
+    console.log("getting current level");
+    return this.currentLevel;
+    /*if (this.currentLevel == 0) {
+      console.log("level0");
+      if (this.turtleCount == 1) {
+        this.turtleCount = 0;
+        return 0;
+      }
+      else {
+        return 0;
+      }
+      return 0;
+    }
+    else if (this.currentLevel == 1) {
+      console.log("level1");
+      if (this.turtleCount == 1) {
+        this.turtleCount = 0;
+        return 1;
+      }
+      else {
+        return 1;
+      }
+      return 1;
+    }
+    else if (this.currentLevel == 2) {
+      if (this.turtleCount == 1) {
+        return 2;
+      }
+      else {
+        return 2;
+        console.log('ELSE REGURN #');
+      }
+    }*/
+    //console.log("end");
   }
 
 }
@@ -83,11 +167,17 @@ var intro = ['It has been 10 years since you have lost Powder, your pet turtle. 
 
 var intro2 = ['It has been 10 years since you have lost Powder, your pet turtle.', "Recently a string of turdle disappearances have occured.", 'You have gotten a lead that there have been some turtle sightings at the Professor Pixel mansion.', "Unfortunetly all the wanted pictures of missing turtles are all distorted.", 'It is up to you to match the turtles you find to their rightful owners'];
 
-var sonictalk = ['HEY! Have you seen my missing turtle!?! I have not seen him in a week. I am not the only one either. Everyone I know has lost their turtles. Unfortunately all of their pictures in their missing turtle posters are messed up by some evil force.', 'HMM. There are a lot of turtles in this place. Take some missing turtle flyers. Tap twice to stop me from talking.'];
+var sonictalk = ['HEY! Have you seen my missing turtle? I have not seen him in a week. Everyone I know has lost their turtles. Unfortunately all of the pictures in the missing turtle posters are messed up by some evil force. Hm, here are a lot of turtles in this place. Take some missing turtle flyers.', ' Tap twice to exit speech.'];
 
 var npctalk = ['me: Im gonna help find and return these turtles.', 'me to me: Steal them and keep them all for yourself'];
 
+var sampleText = ['This is sample text that will be replaced', 'by the real text later...'];
 
+var profpixeltalk = ['Oh no! You figured out my secret image forumulas! You better not take my last turtles!'];
+
+var level2RedText = ['This red filter will REMOVE the red in this picture. Match the images!'];
+var level1AddText = ['This add filter will brighten picture. Match the images!'];
+var level0GrayText = ['This gray filter will change the color pixels in to values in grayscale. Match the images!']
 
 
 var player;
@@ -183,8 +273,19 @@ function compareImages(firstImage, secondImage){
 //Collision handler for NPCs
 var npcCollision = function(player, npc){
   TA.createDiaFlag = true;
-  sayDialogue(npc);
+  sayDialogue(npc.dialogue);
 }
+
+//collision handler for Turtles
+var stateChangeCollision = function(obj1, obj2){
+  if (!TA.level0.completedPuzzle) {
+    TA.playerX = obj1.body.center.x;
+    TA.playerY = obj2.body.center.y;
+    TA.currentTurtle = obj2;
+    game.state.start('Image');
+  }
+}
+
 
 function onTap(pointer, doubleTap) {
    if (doubleTap)
@@ -196,6 +297,7 @@ function onTap(pointer, doubleTap) {
      }
    }
 }
+
 
 function setupUpdate() {
   player.body.velocity.setTo(0, 0);

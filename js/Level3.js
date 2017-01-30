@@ -8,8 +8,12 @@ var Level3 = {
     // Setup World
     game.add.tileSprite(0, 0, 1920, 1920, 'background');
     game.world.setBounds(0, 0, 1920, 1920);
-
+    this.nextLevel = "GameOver";
+    TA.currentLevel++;
     // Setup NPCs
+
+    TA.level3.profpixel = new NPC(200, 100, game, 'profpixel', profpixeltalk);
+
 
 
     // Setup Player
@@ -50,7 +54,17 @@ var Level3 = {
 
   // All collision handlers for the level
   addCollisions: function() {
+    game.physics.arcade.collide(player, TA.level3.profpixel, this.firstPersonCollision, null, this);
 
+
+  },
+
+  // Collision handler for the npc
+  firstPersonCollision: function(obj1, obj2) {
+    //npcCollision(obj1, obj2);
+    //TA.level0.turtle.visible = true;
+    game.state.start('GameOver');
+    console.log('colli');
   }
 
 }
