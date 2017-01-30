@@ -30,8 +30,8 @@ var Level1 = {
     if(TA.level1.startingLevel){
       TA.level1.startingLevel = false;
       player = game.add.sprite(game.world.centerX, game.world._height - 200, 'kiwi');
-      //TA.level1.turtle1 = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 600, game, 'turtle', sampleText, [[arithmeticAddShader,"ADD",1], [grayscaleShader, "GRAYSCALE",1]]);
-      //TA.level1.turtle2 = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 700, game, 'turtle', sampleText, [[grayscaleShader, "GRAYSCALE",1]]);
+      TA.level1.turtle1 = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 600, game, 'turtle', sampleText, [[arithmeticAddShader,"ADD",1], [grayscaleShader, "GRAYSCALE",1]]);
+      TA.level1.turtle2 = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 700, game, 'turtle', sampleText, [[grayscaleShader, "GRAYSCALE",1]]);
       TA.level1.turtle3 = new Turtle(game.world.centerX/2 - 200, game.world.centerY/2 + 900, game, 'turtle', level1AddText, [[arithmeticAddShader,"ADD",1],[grayscaleShader,"GRAY",0]]);
 
     } else{

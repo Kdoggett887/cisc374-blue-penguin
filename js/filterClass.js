@@ -188,30 +188,31 @@ function filterClass(game, imageKey, shaders) {
           // console.log("u win");
           TA.turtleCount++;
           console.log(TA.turtleCount);
-          var currentLevel = TA.getCurrentLevel();
-          console.log("currentlevel " + currentLevel);
-
-
-          if (currentLevel == 0) {
-            game.state.start('Level1');
-            currentLevel++;
-            console.log('starting' + 'level1');
-          }
-          else if (currentLevel == 1) {
-            game.state.start('Level2');
-            currentLevel++;
-            console.log('starting' + 'level2');
-          }
-          else if (currentLevel == 2) {
-            game.state.start('Level3');
-            currentLevel++;
-            console.log('starting' + 'level3');
-          }
-          else if (currentLevel == 3) {
-            game.state.start('GameOver');
-            currentLevel++;
-            console.log('starting' + 'levelgameover');
-          }
+          TA.changeCurrentLevel();
+          // var currentLevel = TA.getCurrentLevel();
+          // console.log("currentlevel " + currentLevel);
+          //
+          //
+          // if (currentLevel == 0) {
+          //   game.state.start('Level1');
+          //   currentLevel++;
+          //   console.log('starting' + 'level1');
+          // }
+          // else if (currentLevel == 1) {
+          //   game.state.start('Level2');
+          //   currentLevel++;
+          //   console.log('starting' + 'level2');
+          // }
+          // else if (currentLevel == 2) {
+          //   game.state.start('Level3');
+          //   currentLevel++;
+          //   console.log('starting' + 'level3');
+          // }
+          // else if (currentLevel == 3) {
+          //   game.state.start('GameOver');
+          //   currentLevel++;
+          //   console.log('starting' + 'levelgameover');
+          // }
 
 
           // TA.currentTurtle.destroy();
