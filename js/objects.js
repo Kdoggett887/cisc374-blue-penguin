@@ -2,7 +2,7 @@
 
 Turtle = function(x, y, game, sprite, dialogue, shaderList){
   Phaser.Sprite.call(this, game, x, y, sprite);
-  
+
   this.shaderList = shaderList; //note format: [[shaderObject, filterStringName, numPasses], [....]]
 
   this.shaderList = shaderList;
@@ -31,15 +31,7 @@ Turtle.prototype.constructor = Turtle;
 //displays an NPC's dialogue
 var sayDialogue = function(dialogue){
   //later, add an overlay that displays text box and sprite for this person
-
-  if(!currentDialogue){
-    currentDialogue = new DialogueBox(game.camera.width/2, game.camera.height/2, dialogue);
-    console.log("made new dialog box");
-  }
-  else{
-    currentDialogue.content = dialogue;
-    //console.log("updated dialog content " + currentDialogue.content);
-  }
+  currentDialogue = new DialogueBox(game.camera.width/2, game.camera.height/2, dialogue);
   TA.createDiaFlag = true;
   currentDialogue.createText();
 }

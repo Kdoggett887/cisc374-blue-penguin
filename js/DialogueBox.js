@@ -1,7 +1,4 @@
-var line = [];
-var wordIndex = 0;
-var lineIndex = 0;
-
+// Constants
 var wordDelay = 120;
 var lineDelay = 400;
 
@@ -14,12 +11,9 @@ var DialogueBox = function(x, y, messageArray){
   this.y = game.camera.height / 2;
   this.content = messageArray;
   this.isShowing = false;
-
-
-
-
-
-
+  this.line = [];
+  this.wordIndex = 0;
+  this.lineIndex = 0;
 
 
 
@@ -50,25 +44,12 @@ var DialogueBox = function(x, y, messageArray){
     this.text.wordWrap = true;
     this.text.wordWrapWidth = 500;
     this.text.fixedToCamera = true;
-    
+
 
 
 
     this.nextLine();
-    // createDiaFlag = true;
 
-  }
-
-
-  this.removeText = function(){
-
-    //this.textBG.destroy();
-    this.textBG.alpha = 0;
-      this.text.alpha = 0; //destroy();
-      // createDiaFlag = false;
-      console.log('remove dialog');
-    wordIndex = 0;
-    lineIndex = 0;
   }
 
 
@@ -76,18 +57,19 @@ var DialogueBox = function(x, y, messageArray){
 
 
   this.nextLine = function() {
+    console.log(this.content.length);
       if (lineIndex === this.content.length)
       {
           return;
       }
       //  Split the current line on spaces, so one word per array element
-      line = this.content[lineIndex].split(' '); //content
+      this.line = this.content[this.lineIndex].split(' '); //content
       //  Reset the word index to zero (the first word in the line)
-      wordIndex = 0;
+      this.wordIndex = 0;
       //  Call the 'nextWord' function once for each word in the line (line.length)
-      game.time.events.repeat(wordDelay, line.length, this.nextWord, this);
+      game.time.events.repeat(wordDelay, this.line.length, this.nextWord, this);
       //  Advance to the next line
-      lineIndex++;
+      this.lineIndex++;
   }
 
 
@@ -95,11 +77,11 @@ var DialogueBox = function(x, y, messageArray){
 
   this.nextWord = function() {
       //  Add the next word onto the text string, followed by a space
-      this.text.text = this.text.text.concat(line[wordIndex] + " ");
+      this.text.text = this.text.text.concat(this.line[this.wordIndex] + " ");
       //  Advance the word index to the next word in the line
-      wordIndex++;
+      this.wordIndex++;
       //  Last word?
-      if (wordIndex === line.length)
+      if (this.wordIndex === line.length)
       {
           //  Add a carriage return
           this.text.text = this.text.text.concat("\n");
@@ -108,5 +90,4 @@ var DialogueBox = function(x, y, messageArray){
       }
   }
 
-  //game.input.onDown.addOnce(this.removeText(), this);
 }

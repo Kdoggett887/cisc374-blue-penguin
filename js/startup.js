@@ -267,7 +267,6 @@ function onTap(pointer, doubleTap) {
    {
      //  They double-tapped, so swap the image
      if(TA.createDiaFlag == true){
-       currentDialogue.removeText();
        TA.createDiaFlag = false;
      }
    }
