@@ -57,16 +57,16 @@ function filterClass(game, imageKey, shaders) {
       }
 
 
-    var newButton = new FilterButton(game, cameraTopX + (game.camera.width/2) + xspace*side*(Math.round(i/2)+1), cameraTopY + yloc, "emptyButton", this.filters[i].name, this.filters[i], newButton);
+    var newButton = new FilterButton(game, cameraTopX + (game.camera.width/2) + xspace*side*(Math.round(i/2)+1), cameraTopY + yloc, "emptyButton", this.filters[i].name, this.filters[i], newButton, 1, 0, 1);
       newButton.button.scale.setTo(2,2);
     }
 
     var undoButton;
-    undoButton = new LabelButton(game, cameraTopX + (game.camera.width/2), cameraTopY + 380, "emptyButton", "UNDO", undoOnClick, undoButton);
+    undoButton = new LabelButton(game, cameraTopX + (game.camera.width/2), cameraTopY + 380, "emptyButton", "UNDO", undoOnClick, undoButton, 1, 0, 1);
     undoButton.scale.setTo(2,2);
 
     var completeButton;
-    completeButton = new LabelButton(game, cameraTopX + (game.camera.width/2), cameraTopY + 450, "emptyButton", "COMPLETE", completeFilter, completeButton);
+    completeButton = new LabelButton(game, cameraTopX + (game.camera.width/2), cameraTopY + 450, "emptyButton", "COMPLETE", completeFilter, completeButton, 1, 0, 1);
     completeButton.scale.setTo(2,2);
   }
 
@@ -250,12 +250,12 @@ function filterClass(game, imageKey, shaders) {
     function filterOnClick(){
         // applyFilter(cleanImage, this.filter);
         pushFilter(cleanImage, this.filter);//add the buttons filter
-        this.button.frame = this.button.frame == 2 ? 0 : 2;
+        //this.button.frame = this.button.frame == 2 ? 0 : 2;
     }
 
     function undoOnClick() {
         popFilter(cleanImage);
-        this.frame = this.frame == 2 ? 0 : 2;
+        //this.frame = this.frame == 2 ? 0 : 2;
     }
 
     function completeFilter() {

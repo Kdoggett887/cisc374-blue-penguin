@@ -134,8 +134,7 @@ var TA = new function(){
 //----------VARIABLES ---------------------//
 
 
-// content = ['hello darkness my old friend', "zz zzz zzzz zzzz zzz zzz z z z z z z z z z z zz zzzz zzzz zzzz zzzz zzzzz", 'you found a key', "orange peels"];
-
+//text content for dialogue box popups and intro
 var intro = ['It has been 10 years since you lost Powder, your pet turtle. Recently a string of turtle disappearances have occurred. You have gotten a lead that there have been some turtle sightings at the Professor Pixel mansion. Unfortunately all the wanted pictures of missing turtles are distorted. It is up to you to match the turtles you find to their rightful owners.'];
 
 var intro2 = ['It has been 10 years since you have lost Powder, your pet turtle.', "Recently a string of turdle disappearances have occured.", 'You have gotten a lead that there have been some turtle sightings at the Professor Pixel mansion.', "Unfortunetly all the wanted pictures of missing turtles are distorted.", 'It is up to you to match the turtles you find to their rightful owners'];
@@ -148,10 +147,19 @@ var sampleText = ['This is sample text that will be replaced', 'by the real text
 
 var profpixeltalk = ['Oh no! You figured out my secret image forumulas! You better not take my last turtles!'];
 
-var level2RedText = ['This red filter will REMOVE the red in this picture. Match the images!'];
-var level1AddText = ['This add filter will brighten picture. Match the images!'];
-var level0GrayText = ['This gray filter will change the color pixels in to values in grayscale. Match the images! Hint: Adding Greyscale more than once will not change the picture.']
 
+var level0GrayText = ['Are you sure this is the turtle you are looking for? The missing turtle poster looks a litle different. Better make sure the images match! Lets see if it has been filtered somehow. This gray filter will change the color pixels in to values in grayscale. Press complete when the images match. Hint: Adding Greyscale more than once will not change the picture.']
+
+var level1AddText = ['You found another turtle! But the missing turtle poster still looks a litle different. Better make sure the images match! Lets see if it has been filtered somehow. This add (arithmetic add) filter will brighten picture. Match the images!'];
+var level1SubText = ['You found a turtle! This sub (arithmetic subtration) filter will darken picture. Match the images!'];
+var level1MultiText = ['Another turtle! Use the sub, add, and gray filters in combination to match the image!'];
+var level2RedText = ['This red filter will REMOVE the red in this picture. Match the images!'];
+var level2GreenText = ['This green filter will REMOVE the green in this picture. Match the images!'];
+var level2BlueText = ['This blue filter will REMOVE the blue in this picture. Match the images!'];
+
+var level1npcTalk = ['Oh! Detective KJ! I heard you are pretty good at finding turtles. Have you seen mine? I have some photos, but that evil Professor Pixel made their RGB values greater or less than they should be. Here, maybe you can make sense of them...'];
+var level2npcTalk = ['Detective KJ, thank goodness! Professor Pixel just ran through here and stole a WHOLE COLOR from my turtle photos! How will I find my turtles now??'];
+var level3npcTalk = ['I think I saw Professor Pixel around here somewhere.. please, Detective, you gotta catch him!'];
 
 // Problems putting player variable in TA object
 var player;
