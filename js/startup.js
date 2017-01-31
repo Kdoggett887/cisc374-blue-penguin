@@ -154,6 +154,8 @@ var level1AddText = ['You found a turtle! This add (arithmetic add) filter will 
 var level1SubText = ['You found a turtle! This sub (arithmetic subtration) filter will darken picture. Match the images!'];
 var level1MultiText = ['Another turtle! Use the sub, add, and gray filters in combination to match the image!'];
 var level2RedText = ['This red filter will REMOVE the red in this picture. Match the images!'];
+var level2GreenText = ['This green filter will REMOVE the green in this picture. Match the images!'];
+var level2BlueText = ['This blue filter will REMOVE the blue in this picture. Match the images!'];
 
 // Problems putting player variable in TA object
 var player;
