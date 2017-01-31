@@ -5,6 +5,7 @@ Kevin Jones
 Keith Doggett
 Kalina Ye
 Danielle Wegrzyn
+dwegrzyn@udel.edu
 
 Description
 
@@ -17,8 +18,13 @@ How to Use
   
 Issues
 
+Sidelined Code
+
 
 Future Plans
   Sliders...
+  Additional levels
 
 Project Sources
+  Kiwi base for detective_intro.png - https://commons.wikimedia.org/wiki/File:TeTuatahianui.jpg
+  Phaser Javascript Library - https://phaser.io/
