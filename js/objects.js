@@ -1,14 +1,10 @@
 
 
-Turtle = function(x, y, game, sprite, dialogue, shaderList){
+Turtle = function(x, y, game, sprite, dialogue, shaderList){ //turtle object: contains the filter explanations and list of filters/shaders that appear during the filter state after colliding with a turtle
   Phaser.Sprite.call(this, game, x, y, sprite);
 
   this.shaderList = shaderList; //note format: [[shaderObject, filterStringName, numPasses], [....]]
-
-  this.shaderList = shaderList;
   this.dialogue = dialogue;
-
-  this.shaderList = shaderList;
   this.game.physics.arcade.enableBody(this);
   this.enableBody = true;
   this.body.immovable = true;
