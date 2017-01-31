@@ -11,7 +11,7 @@ var Level2 = {
 
     // Setup NPCs
 
-    TA.level2.turtleRed = new Turtle(game.world.centerX - 650, game.world.centerY + 400, game, 'turtle', level2RedText, [makeRed(1), makeGrayscale(0), makeAdd(0)]);
+    TA.level2.turtleRed = new Turtle(game.world.centerX - 650, game.world.centerY + 400, game, 'turtle', level2RedText, [makeRed(1)]);
     TA.level2.turtleGreen = new Turtle(game.world.centerX + 400, game.world.centerY + 100, game, 'turtle', sampleText, [makeGreen(1)]);
     TA.level2.turtleBlue = new Turtle(game.world.centerX - 650, game.world.centerY - 200, game, 'turtle', sampleText, [makeBlue(1)]);
     TA.level2.turtleFinal = new Turtle(game.world.centerX, game.world.centerY - 775, game, 'turtle', sampleText, [makeRed(1), makeGreen(1), makeBlue(0)]);
