@@ -8,19 +8,18 @@ var Level2 = {
     // Setup World
     game.add.tileSprite(0, 0, 1920, 1920, 'background');
     game.world.setBounds(0, 0, 1920, 1920);
-    this.nextLevel = "Level3";
-    TA.currentLevel++;
+
     // Setup NPCs
 
+    TA.level2.turtleRed = new Turtle(game.world.centerX - 650, game.world.centerY + 400, game, 'turtle', level2RedText, [makeRed(1), makeGrayscale(0), makeAdd(0)]);
+    TA.level2.turtleGreen = new Turtle(game.world.centerX + 400, game.world.centerY + 100, game, 'turtle', sampleText, [makeGreen(1)]);
+    TA.level2.turtleBlue = new Turtle(game.world.centerX - 650, game.world.centerY - 200, game, 'turtle', sampleText, [makeBlue(1)]);
+    TA.level2.turtleFinal = new Turtle(game.world.centerX, game.world.centerY - 775, game, 'turtle', sampleText, [makeRed(1), makeGreen(1), makeBlue(0)]);
 
     // Setup Player
     if(TA.level2.startingLevel){
-      TA.level2.turtleRed = new Turtle(game.world.centerX - 650, game.world.centerY - 200, game, 'turtle', level2RedText, [[removeRedShader, "RED", 1],[grayscaleShader, "GRAYSCALE", 0], [arithmeticAddShader,"ADD", 0]]);
-      //TA.level2.turtleGreen = new Turtle(game.world.centerX + 400, game.world.centerY + 100, game, 'turtle', sampleText, [[removeGreenShader, "GREEN", 1]]);
-      //TA.level2.turtleBlue = new Turtle(game.world.centerX - 650, game.world.centerY + 400, game, 'turtle', sampleText, [[removeBlueShader, "BLUE", 1]]);
-      //TA.level2.turtleFinal = new Turtle(game.world.centerX, game.world.centerY - 800, game, 'turtle', sampleText, [[removeRedShader, "RED", 1], [removeGreenShader, "GREEN", 1], [removeBlueShader, "BLUE", 0]]);
       TA.level2.startingLevel = false;
-      player = game.add.sprite(game.world.centerX, game.world._height - 200, 'kiwi');
+      player = game.add.sprite(game.world.centerX, game.world._height - 150, 'kiwi');
     }
     else{
       //if persisting data put it in here
@@ -30,11 +29,7 @@ var Level2 = {
 
     // Add physics for all sprites
     game.physics.startSystem(Phaser.Physics.ARCADE);
-    game.physics.enable([player, TA.level2.turtleRed], Phaser.Physics.ARCADE); //, TA.level2.turtleGreen, TA.level2.turtleBlue, TA.level2.turtleFinal
-    TA.level2.turtleRed.body.immovable = true;
-    //TA.level2.turtleGreen.body.immovable = true;
-    //TA.level2.turtleBlue.body.immovable = true;
-    //TA.level2.turtleFinal.body.immovable = true;
+    game.physics.enable([player], Phaser.Physics.ARCADE);
     player.fixedRotation = true;
     game.camera.follow(player);
 
@@ -43,7 +38,7 @@ var Level2 = {
     game.input.onTap.add(onTap, this);
 
     // Builds the level using a layout
-    wallGroup = game.add.physicsGroup();
+    TA.wallGroup = game.add.physicsGroup();
     buildLevel(Levels.level2);
     addUI();//mute and retart etc.
 
@@ -60,21 +55,12 @@ var Level2 = {
 
   // All collision handlers for the level
   addCollisions: function() {
-    game.physics.arcade.collide(player, wallGroup, wallCollision, null, this);
+    game.physics.arcade.collide(player, TA.wallGroup, wallCollision, null, this);
     game.physics.arcade.collide(player, TA.level2.turtleRed, stateChangeCollision, null, this);
-    //game.physics.arcade.collide(player, TA.level2.turtleGreen, this.stateChangeCollision, null, this);
-    //game.physics.arcade.collide(player, TA.level2.turtleBlue, this.stateChangeCollision, null, this);
-    //game.physics.arcade.collide(player, TA.level2.turtleFinal, this.stateChangeCollision, null, this);
+    game.physics.arcade.collide(player, TA.level2.turtleGreen, stateChangeCollision, null, this);
+    game.physics.arcade.collide(player, TA.level2.turtleBlue, stateChangeCollision, null, this);
+    game.physics.arcade.collide(player, TA.level2.turtleFinal, stateChangeCollision, null, this);
 
-  },
-
-  stateChangeCollision: function(obj1, obj2){
-    if (!TA.level0.completedPuzzle) {
-        TA.playerX = obj1.body.center.x;
-        TA.playerY = obj2.body.center.y;
-      TA.currentTurtle = obj2;
-        game.state.start('Image');
-    }
   }
 
 }

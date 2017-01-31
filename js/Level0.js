@@ -17,7 +17,7 @@ var Level0 = {
 
     // Setup Player/Turtles
     if(TA.level0.startingLevel){
-      TA.level0.turtle = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 600, game, 'turtle', level0GrayText, [[grayscaleShader, "GREYSCALE", 1]]);
+      TA.level0.turtle = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 600, game, 'turtle', level0GrayText, [makeGrayscale(1)]);
       TA.level0.turtle.visible = false;
       player = game.add.sprite(game.world.centerX, game.world._height - 200, 'kiwi');
       TA.level0.startingLevel = false;
@@ -29,8 +29,7 @@ var Level0 = {
 
     // Add physics for all sprites
     game.physics.startSystem(Phaser.Physics.ARCADE);
-    game.physics.enable([player, TA.level0.turtle], Phaser.Physics.ARCADE);
-    TA.level0.turtle.body.immovable = true;
+    game.physics.enable([player], Phaser.Physics.ARCADE);
     player.fixedRotation = true;
     game.camera.follow(player);
 
