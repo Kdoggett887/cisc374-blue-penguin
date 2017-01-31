@@ -12,7 +12,7 @@ function makeAdd(numCorrect) {
 }
 
 function makeSub(numCorrect) {
-  return [arithmeticAddShader, "SUB", numCorrect];
+  return [arithmeticSubShader, "SUB", numCorrect];
 }
 
 function makeRed(numCorrect) {
