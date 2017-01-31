@@ -37,9 +37,10 @@ More information can be found at [https://cordova.apache.org/](https://cordova.a
 
 How to Use
   Open the 'index.html' file in your web browser
-  
+
 Issues
 	There is no buffer after hitting NPCs so it is possible to have dialogue boxes pop up frequently. Sometimes when it happens too quickly, the text will say 'undefined' in certain areas.
+  On Android devices, the app's ratio does not fit when switching screen orientation. It is suggested to open the app while the device is in landscape mode to have better view.
 
 Sidelined Code
 
