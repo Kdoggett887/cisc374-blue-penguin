@@ -34,22 +34,25 @@ More information can be found at [https://cordova.apache.org/](https://cordova.a
 
 
 ## How to Use
-  Open the 'index.html' file in your web browser  
+Open the 'index.html' file in your web browser  
 
 ## Issues
 *There is no buffer after hitting NPCs so it is possible to have dialogue boxes pop up frequently. Sometimes when it happens too quickly, the text will say 'undefined' in certain areas.
 
 *On Android devices, the app's ratio does not fit when switching screen orientation. It is suggested to open the app while the device is in landscape mode to have better view.
 
+*There could be a problem with how filters are applied that it creates and image that is equivalent based on the number of filters, but could look different. Untested for the most part
+
 ## Sidelined Code
   *Sliders
+  *Sobel filter (works but unused)
 
 ## Future Plans
   *Sliders for changing filters
   *Additional levels
   *More in-depth story
 
-## Project Sources 
+## Project Sources
   Kiwi base for detective_intro.png - https://commons.wikimedia.org/wiki/File:TeTuatahianui.jpg  
   Phaser Javascript Library - https://phaser.io/  
   Music: DancesandDames.mp3- http://incompetech.com/music/royalty-free/index.html?collection=41  
