@@ -29,13 +29,11 @@ var TA = new function(){
     this.turtleGroup;
     this.fakeKiwi;
     this.npc;
-    this.completedPuzzle = false;
     this.startingLevel = true;
 
     // Put any variables that need to be reset here
     this.reset = function() {
       this.startingLevel = true;
-      this.completedPuzzle = false;
     }
 
   }
@@ -47,12 +45,10 @@ var TA = new function(){
     this.turtle2;
     this.turtle3;
     this.startingLevel = true;
-    this.completedPuzzle = false;
 
     // Put any variables that need to be reset here
     this.reset = function() {
       this.startingLevel = true;
-      this.completedPuzzle = false;
     }
 
   }
@@ -60,7 +56,6 @@ var TA = new function(){
   // All variables for Level 2
   this.level2 = new function() {
     this.startingLevel = true;
-    this.completedPuzzle = false;
     this.turtleRed;
     this.turtleGreen;
     this.turtleBlue;
@@ -76,6 +71,10 @@ var TA = new function(){
   this.level3 = new function() {
     this.startingLevel = true;
     this.profpixel;
+    this.turtleBlur;
+    this.turtle1;
+    this.turtle2;
+    this.turtle3;
 
     // Put any variables that need to be reset here
     this.reset = function() {
