@@ -6,7 +6,7 @@ Kalina Ye
 Danielle Wegrzyn - dwegrzyn@udel.edu  
 
 ## Description
-Detective KJ and the 30,000 Turtles is a game that helps kids learn about image processing. In the game, you are a kiwi detective, 'KJ', who must solve a mystery involving missing turtles revolving around Professor Pixel's mansion. KJ navigates around Professor Pixel's mansion maze and finds turtles. He must match images of turtles to other images that have been altered by using a set variety of filters.
+Detective KJ and the 30,000 Turtles is a game that helps kids learn about image processing. In the game, you are a kiwi detective, 'KJ', who must solve a mystery involving missing turtles inside Professor Pixel's mansion. KJ navigates around Professor Pixel's mansion mazes and finds turtles. He must match images of turtles to other images that have been altered by a  variety of filters.
 
 ## Installation Steps
 
