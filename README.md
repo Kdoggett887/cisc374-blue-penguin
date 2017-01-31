@@ -43,6 +43,10 @@ Open the 'index.html' file in your web browser
 
 *There could be a problem with how filters are applied that it creates and image that is equivalent based on the number of filters, but could look different. Untested for the most part
 
+*The mute button might be finicky after playing for a while after moving on Levels
+
+*On the final level 3, you can collide with the final turtle twice (after the visibility is hidden) and completing the filter will end the game. It is supposed to not collide after it is hidden, and the user is supposed to find Professor Pixel
+
 ## Sidelined Code
   *Sliders for applying filters instead of buttons (except grayscale, which can only toggle)
   *Sobel filter (works but unused)
@@ -52,6 +56,7 @@ Open the 'index.html' file in your web browser
   *Additional levels  
   *More in-depth story
   *Clear all filters button (might not be needed if sliders are implemented)
+  *On level 3, make it so Professor Pixel will not appear until turtles are completed
 
 ## Project Sources
   Kiwi base for detective_intro.png - https://commons.wikimedia.org/wiki/File:TeTuatahianui.jpg  

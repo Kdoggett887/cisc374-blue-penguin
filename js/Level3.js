@@ -20,6 +20,9 @@ var Level3 = {
     var turtleList = [TA.level3.turtleBlur, TA.level3.turtle1, TA.level3.turtle2, TA.level3.turtle3];
     TA.setTurtleVisibility(turtleList);
 
+    //Initialize villain to be false
+    TA.level3.profpixel.visible = false;
+
     // Setup Player
     if(TA.level3.startingLevel){
       TA.level3.startingLevel = false;
@@ -55,6 +58,13 @@ var Level3 = {
     this.addCollisions();
 
     // Add extra stuff...
+
+      //make villain visible after 4 turtle collected
+      if(TA.turtleCount >= 4){
+        TA.level3.profpixel.visible = true;
+      }else{
+        //TA.level3.profpixel.visible = false;
+      }
   },
 
   // All collision handlers for the level

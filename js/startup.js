@@ -122,9 +122,11 @@ var TA = new function(){
         // Should never reach this state
         // End villain should end the game
         this.turtleCount = 0;
-        this.currentLevel = 4;
-        // game.state.start('Level4');
-        game.state.start('GameOver');
+        //this.currentLevel = 4;
+        //game.state.start('Level4');
+        //game.state.start('GameOver');
+
+
       }
       else {
         game.state.start('Level3');
@@ -141,6 +143,7 @@ var TA = new function(){
       else turtleList[i].visible = false;
     }
   }
+
 }
 
 
@@ -162,9 +165,8 @@ var profpixeltalk = ['Oh no! You figured out my secret image forumulas! You bett
 
 
 
-var level0GrayText = ['Are you sure this is the turtle you are looking for? The missing turtle poster looks a litle different. Better make sure the images match! Lets see if it has been filtered somehow. This gray filter will change the color pixels in to values in grayscale. Press complete when the images match. Hint: Adding Greyscale more than once will not change the picture.']
-
-var level1AddText = ['You found another turtle! But the missing turtle poster still looks a litle different. Better make sure the images match! Lets see if it has been filtered somehow. This add (arithmetic add) filter will brighten picture. Match the images!'];
+var level0GrayText = ['This gray filter will change the color pixels in to values in grayscale. Match the images! Hint: Adding Greyscale more than once will not change the picture.']
+var level1AddText = ['You found a turtle! This add (arithmetic add) filter will brighten picture. Match the images!'];
 var level1SubText = ['You found a turtle! This sub (arithmetic subtration) filter will darken picture. Match the images!'];
 var level1MultiText = ['Another turtle! Use the sub, add, and gray filters in combination to match the image!'];
 var level2RedText = ['This red filter will REMOVE the red in this picture. Match the images!'];
@@ -178,7 +180,7 @@ var level3Turtle3 = ['Another day, another turtle.'];
 
 var level1npcTalk = ['Oh! Detective KJ! I heard you are pretty good at finding turtles. Have you seen mine? I have some photos, but that evil Professor Pixel made their RGB values greater or less than they should be. Here, maybe you can make sense of them...'];
 var level2npcTalk = ['Detective KJ, thank goodness! Professor Pixel just ran through here and stole a WHOLE COLOR from my turtle photos! How will I find my turtles now??'];
-var level3npcTalk = ['I think I saw Professor Pixel around here somewhere.. please, Detective, you gotta catch him!'];
+var level3npcTalk = ['I think I saw Professor Pixel around here somewhere... please, Detective, you gotta catch him!'];
 
 // Problems putting player variable in TA object
 var player;
