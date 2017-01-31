@@ -8,7 +8,7 @@ var preloadState = {
     game.load.script('gray', 'js/lib/filters/Gray.js');
 
     game.load.image('background','images/darkback.jpg');
-    game.load.image('npc','images/sonic_havok_sanity.png');
+    game.load.image('npc','images/npc.png');
 
 
     game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
