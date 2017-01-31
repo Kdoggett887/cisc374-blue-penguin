@@ -313,10 +313,14 @@ function filterClass(game, imageKey, shaders) {
           console.log("Images different...try again");
 
           //console.log("Images different...try again");
-          //var introStyle = { font: "32px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: 700, align: "center", backgroundColor: "#ffff00" };
-          // incompleteText = game.add.text(game.world.centerX, game.world.centerY, "images are different...try again",
-          //   {font: "25px Arial", fill: "#ffffff", align: "center"});
-          // console.log(incompleteText);
+          incompleteText = game.add.text(game.camera.width/2 - 40, game.camera.height - 70, "images are different...try again",
+          {font: "25px Arial", fill: "#ffffff", align: "center"});
+          incompleteText.anchor.set(0.5);
+
+          game.time.events.add(Phaser.Timer.SECOND * 3, function(){ // after 3 seconds destroy text
+            incompleteText.destroy();
+          }, this);
+
         }
     }
 
