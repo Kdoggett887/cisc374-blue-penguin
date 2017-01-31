@@ -44,13 +44,14 @@ Open the 'index.html' file in your web browser
 *There could be a problem with how filters are applied that it creates and image that is equivalent based on the number of filters, but could look different. Untested for the most part
 
 ## Sidelined Code
-  *Sliders
+  *Sliders for applying filters instead of buttons (except grayscale, which can only toggle)
   *Sobel filter (works but unused)
 
 ## Future Plans
   *Sliders for changing filters  
   *Additional levels  
-  *More in-depth story  
+  *More in-depth story
+  *Clear all filters button (might not be needed if sliders are implemented)
 
 ## Project Sources
   Kiwi base for detective_intro.png - https://commons.wikimedia.org/wiki/File:TeTuatahianui.jpg  
