@@ -9,7 +9,7 @@ var Level3 = {
     game.add.tileSprite(0, 0, 1920, 1920, 'background');
     game.world.setBounds(0, 0, 1920, 1920);
     // Setup NPCs
-    TA.level3.npc = new NPC(game.world.centerX/2 + 200, game.world.centerY/2 + 1300,game, 'npc', sonictalk);
+    TA.level3.npc = new NPC(game.world.centerX/2 + 200, game.world.centerY/2 + 1300,game, 'npc', level3npcTalk);
     TA.level3.profpixel = new NPC(game.world.centerX + 500, game.world.centerY - 700, game, 'profpixel', profpixeltalk);
 
     TA.level3.turtleBlur = new Turtle(game.world.centerX - 100, game.world.centerY, game, 'turtle', level2RedText, [makeBlur(1)]);

@@ -10,7 +10,7 @@ var Level2 = {
     game.world.setBounds(0, 0, 1920, 1920);
 
     // Setup NPCs
-    TA.level2.npc = new NPC(game.world.centerX/2 + 200, game.world.centerY/2 + 1300,game, 'npc', sonictalk);
+    TA.level2.npc = new NPC(game.world.centerX/2 + 200, game.world.centerY/2 + 1300,game, 'npc', level2npcTalk);
 
     TA.level2.turtleRed = new Turtle(game.world.centerX - 650, game.world.centerY + 400, game, 'turtle', level2RedText, [makeRed(1)]);
     TA.level2.turtleGreen = new Turtle(game.world.centerX - 500, game.world.centerY - 200, game, 'turtle', level2GreenText, [makeGreen(1)]);
