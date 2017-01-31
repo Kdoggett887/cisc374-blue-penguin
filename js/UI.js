@@ -4,7 +4,7 @@ var addUI = function(){
 
 
 
-var restart_label = game.add.text(game.camera.width - 100, 15, 'Restart', { font: '20px Arial', fill: '#fff', align: 'right'});
+var restart_label = game.add.text(game.camera.width - 100, game.camera.height - 50, 'Restart', { font: '20px Arial', fill: '#fff', align: 'right'});
 restart_label.inputEnabled = true;
 console.log(restart_label);
 
@@ -27,7 +27,7 @@ restart_label.fixedToCamera = true;
 console.log(game.camera.width);
 
 //MUTE BUTTON LABEL
-var mute_label = game.add.text(game.camera.width - 100, 40, 'Mute', { font: '20px Arial', fill: '#fff', align: 'left'});
+var mute_label = game.add.text(game.camera.width - 100, game.camera.height - 30, 'Mute', { font: '20px Arial', fill: '#fff', align: 'left'});
  mute_label.inputEnabled = true;
  mute_label.fixedToCamera = true;
 
