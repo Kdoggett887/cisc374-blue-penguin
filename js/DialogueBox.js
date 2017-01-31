@@ -1,12 +1,9 @@
 // Constants
 var wordDelay = 120;
-var lineDelay = 400;
+var lineDelay = 400; // speed of going to next line
 
 
-
-
-
-var DialogueBox = function(x, y, messageArray){
+var DialogueBox = function(x, y, messageArray){ // dialogue box pops up with scrolling text
   this.x = game.camera.width / 2;
   this.y = game.camera.height / 2;
   this.content = messageArray;
@@ -17,20 +14,18 @@ var DialogueBox = function(x, y, messageArray){
 
 
 
-  this.createText = function(){ //newX, newY
+  this.createText = function(){
     console.log('crated dilogue boxe');
-    //console.log(newX);
-    //this.x = newX;
-    //this.y = newY;
+
     // background overlay of text
-    this.textBG = game.add.sprite(this.x, this.y, 'pic'); //player.x, player.y
+    this.textBG = game.add.sprite(this.x, this.y, 'pic'); // uses sprite for background
     this.textBG.scale.setTo(.8, .4);
     this.textBG.x = this.textBG.x - this.textBG.width/2;
-    this.textBG.y = game.camera.height / 2; //this.textBG.y - this.textBG.height/6;
+    this.textBG.y = game.camera.height / 2;
     this.textBG.alpha = .8;
     this.textBG.fixedToCamera = true;
     //this.text = null;
-    this.text = game.add.text(this.x, this.y, ''); //player.x, player.y
+    this.text = game.add.text(this.x, this.y, ''); // initial text content is empty
     this.text.anchor.setTo(0.5, 0);
     this.text.y = game.camera.height/2; //this.textBG.y - this.textBG.height/2;
     this.text.font = 'Coming Soon';
@@ -45,14 +40,11 @@ var DialogueBox = function(x, y, messageArray){
     this.text.wordWrapWidth = 500;
     this.text.fixedToCamera = true;
 
-
-
-
-    this.nextLine();
+    this.nextLine(); //adds text
 
   }
 
-  this.removeText = function() {
+  this.removeText = function() { //hides dialogue box
     this.textBG.alpha = 0;
     this.text.alpha = 0;
     this.wordIndex = 0;
@@ -62,7 +54,7 @@ var DialogueBox = function(x, y, messageArray){
 
 
 
-
+// nextLin and nextWord borrowed from Phaser.io text example
   this.nextLine = function() {
     console.log(this.content.length);
       if (this.lineIndex === this.content.length)
