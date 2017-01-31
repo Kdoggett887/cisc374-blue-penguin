@@ -175,6 +175,10 @@ var level3Turtle1 = ['Another turtle?? This guy likes turtles.'];
 var level3Turtle2 = ['[Save Me!] says the turtle.'];
 var level3Turtle3 = ['Another day, another turtle.'];
 
+var level1npcTalk = ['Oh! Detective KJ! I heard you are pretty good at finding turtles. Have you seen mine? I have some photos, but that evil Professor Pixel made their RGB values greater or less than they should be. Here, maybe you can make sense of them...'];
+var level2npcTalk = ['Detective KJ, thank goodness! Professor Pixel just ran through here and stole a WHOLE COLOR from my turtle photos! How will I find my turtles now??'];
+var level3npcTalk = ['I think I saw Professor Pixel around here somewhere.. please, Detective, you gotta catch him!'];
+
 // Problems putting player variable in TA object
 var player;
 var music;
