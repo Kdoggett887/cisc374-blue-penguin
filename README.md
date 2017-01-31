@@ -15,12 +15,12 @@ Detective KJ and the 30,000 Turtles is a game that helps kids learn about image 
 ###Terminal Based Server
 Open terminal and navigate to the directory containing 'index.html'
 Run your server command (i.e. `http-server`)
-Navigate to http://localhost:<your-port>
+Navigate to http://localhost:your-port
 
 ###X AMP Stack
 Move all files/folders in repository into 'www' folder inside of the stack
 Run your server
-Navigate to http://localhost:<your-port>
+Navigate to http://localhost:your-port
 
 ###Android
 Use cordova to create a new project
