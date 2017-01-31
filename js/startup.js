@@ -6,22 +6,18 @@ var TA = new function(){
   this.createDiaFlag = false;
   this.playerX;
   this.playerY;
+  this.wallGroup;
   this.startingGame = true;
-  this.foundPerson = false;
-  this.solvedTurtle = false;
   this.currentTurtle = null;
   this.currentLevel = 0;
-
   this.turtleCount = 0;
 
 
   this.resetGlobals = function() {
     this.createDiaFlag = false;
     this.startingGame = true;
-    this.foundPerson = false;
-    this.solvedTurtle = false;
     this.currentTurtle = null;
-    //this.currentLevel = 0;
+    this.currentLevel = 0;
   }
 
 
@@ -38,29 +34,6 @@ var TA = new function(){
       this.completedPuzzle = false;
     }
 
-
-    this.isFinishedLevel = function() {
-      if (this.completedPuzzle) {
-        return true;
-
-      }
-      else {
-        return false;
-      }
-    }
-
-
-    // this.checkTurtlesDone = function() {
-    //   console.log("checking da turtdles");
-    //   console.log(TA.level0);
-    //   if(TA.level0.turtleGroup.length == 0){
-    //     console.log("found all the turtles on this level");
-    //     game.state.start(TA.level0.nextLevel);
-    //   }
-    //   else{
-    //     console.log("look for more turtles");
-    //   }
-    // }
   }
 
   this.level1 = new function() {
@@ -76,9 +49,6 @@ var TA = new function(){
       this.completedPuzzle = false;
     }
 
-    this.isFinishedLevel = function() {
-      return false;
-    }
   }
 
   this.level2 = new function() {
@@ -107,45 +77,50 @@ var TA = new function(){
   }
 
 
-  this.allLevels = [this.level0, this.level1, this.level2, this.level3];
-
-  this.getCurrentLevel = function() {
-    console.log("getting current level");
-    return this.currentLevel;
-    /*if (this.currentLevel == 0) {
-      console.log("level0");
+  // Handles changing the current level state
+  // also resets turtleCount and sets currentLevel
+  this.changeCurrentLevel = function() {
+    if (this.currentLevel == 0) {
       if (this.turtleCount == 1) {
         this.turtleCount = 0;
-        return 0;
+        this.currentLevel = 1;
+        game.state.start('Level1');
       }
       else {
-        return 0;
+        game.state.start('Level0');
       }
-      return 0;
     }
     else if (this.currentLevel == 1) {
-      console.log("level1");
-      if (this.turtleCount == 1) {
+      if (this.turtleCount == 3) {
         this.turtleCount = 0;
-        return 1;
+        this.currentLevel = 2;
+        game.state.start('Level2');
       }
       else {
-        return 1;
+        game.state.start('Level1');
       }
-      return 1;
     }
     else if (this.currentLevel == 2) {
-      if (this.turtleCount == 1) {
-        return 2;
+      if (this.turtleCount == 4) {
+        this.turtleCount = 0;
+        this.currentLevel = 3;
+        game.state.start('Level3');
       }
+
       else {
-        return 2;
-        console.log('ELSE REGURN #');
+        game.state.start('Level2');
       }
-    }*/
-    console.log("end");
+    }
   }
 
+  this.setTurtleVisibility = function(turtleList) {
+    for (var i = 0; i < turtleList.length; i++) {
+      if (i == this.turtleCount) {
+        turtleList[i].visible = true;
+      }
+      else turtleList[i].visible = false;
+    }
+  }
 }
 
 
@@ -153,17 +128,11 @@ var TA = new function(){
 var w = 800; // game width
 var spacebar;
 
-var createTextFlag = false;
-var createDiaFlag = false;
-var playerX;
-var playerY;
-var startingGame = true;
-var foundPerson = false;
-var solvedTurtle = false;
+var player;
 
-content = ['hello darkness my old friend', "zz zzz zzzz zzzz zzz zzz z z z z z z z z z z zz zzzz zzzz zzzz zzzz zzzzz", 'you found a key', "orange peels"];
+// content = ['hello darkness my old friend', "zz zzz zzzz zzzz zzz zzz z z z z z z z z z z zz zzzz zzzz zzzz zzzz zzzzz", 'you found a key', "orange peels"];
 
-var intro = ['It has been 10 years since you have lost Powder, your pet turtle. Recently a string of turtle disappearances have occurred. You have gotten a lead that there have been some turtle sightings at the Professor Pixel mansion. Unfortunately all the wanted pictures of missing turtles are all distorted. It is up to you to match the turtles you find to their rightful owners.'];
+var intro = ['It has been 10 years since you lost Powder, your pet turtle. Recently a string of turtle disappearances have occurred. You have gotten a lead that there have been some turtle sightings at the Professor Pixel mansion. Unfortunately all the wanted pictures of missing turtles are distorted. It is up to you to match the turtles you find to their rightful owners.'];
 
 var intro2 = ['It has been 10 years since you have lost Powder, your pet turtle.', "Recently a string of turdle disappearances have occured.", 'You have gotten a lead that there have been some turtle sightings at the Professor Pixel mansion.', "Unfortunetly all the wanted pictures of missing turtles are all distorted.", 'It is up to you to match the turtles you find to their rightful owners'];
 
@@ -177,27 +146,15 @@ var profpixeltalk = ['Oh no! You figured out my secret image forumulas! You bett
 
 var level2RedText = ['This red filter will REMOVE the red in this picture. Match the images!'];
 var level1AddText = ['This add filter will brighten picture. Match the images!'];
-var level0GrayText = ['This gray filter will change the color pixels in to values in grayscale. Match the images!']
+var level0GrayText = ['This gray filter will change the color pixels in to values in grayscale. Match the images! Hint: Adding Greyscale more than once will not change the picture.']
 
 
-var player;
-var npc;
-var cursors;
-var inBound;
-var turtle;
-var introText;
-var NpcTest;
-//var incompleteText;
 
 var music;
 var mute_label;
-var wallGroup;
-var turtleText;
 var currentDialogue;
 var dialogueTimer = false;
 
-var puzzle;
-var completedPuzzle1 = false;
 
 function resetAll() {
   TA.resetGlobals();
@@ -209,16 +166,6 @@ function resetAll() {
 function wallCollision (obj1, obj2) {
   //console.log('wall hit');
 }
-
-// function collidePerson(obj1, obj2){
-//     if(!foundPerson){
-//         foundPerson = true;
-//         console.log("found sonic!");
-//         turtle.visible = true;
-//     }
-//   npcCollision(obj1, obj2);
-// }
-
 
 
 //method to compare if two images are filtered the same way
@@ -278,12 +225,10 @@ var npcCollision = function(player, npc){
 
 //collision handler for Turtles
 var stateChangeCollision = function(obj1, obj2){
-  if (!TA.level0.completedPuzzle) {
     TA.playerX = obj1.body.center.x;
     TA.playerY = obj2.body.center.y;
     TA.currentTurtle = obj2;
     game.state.start('Image');
-  }
 }
 
 
@@ -334,7 +279,6 @@ game.state.add("Boot", bootState);
 game.state.add("Preload", preloadState);
 game.state.add("GameTitle", gameTitleState);
 game.state.add("Intro", introState);
-game.state.add("Main", mainState);
 game.state.add("Level0", Level0);
 game.state.add("Level1", Level1);
 game.state.add("Level2", Level2);
@@ -342,116 +286,3 @@ game.state.add("Level3", Level3);
 game.state.add("Image", imageState);
 game.state.add("GameOver", gameOverState);
 game.state.start("Boot");
-
-
-/*
-var level = [
-  '                                                       ',
-  '                                                       ',
-  '                                                       ',
-  '                                                       ',
-  '                              ',
-  '                              ',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '  ',
-  '   ',
-  ' ',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '              xxxxxxxxxxxxxxxxxxxxxxxx             ',
-  '              x                      x',
-  '              x                      x',
-  '              x                      x',
-  '              x                      x',
-  '              x                      x',
-  '              x                      x',
-  '              x                      x',
-  '              x                      x',
-  '              x                      x',
-  '              x                      x',
-  '              x                      x',
-  '              x                      x',
-  '              x                      x',
-  '              x                      x',
-  '              x                      x',
-  '              x                      x',
-  '              x                      x',
-  '              x                      x',
-  '              x                      x',
-  '              xxxxxxxxxx     xxxxxxxxx             ',
-];
-var level2 = [
- 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
- 'x              x                                      x',
- 'x              x                                      x',
- 'x              x                                      x',
- 'x              x       x                              x',
- 'x                      x                           xxxx',
- 'x                      x                x          x',
- 'x                      x                x          x',
- 'xxxxxxxxxxxxxxxxxxxxxxxx                x          x',
- '                                        x          x',
- '                                        x          x',
- '                                        x          x',
- '                                        x          x',
- '                                        x          x',
- 'x      xxxxxx          xxx    xxx       xxxxxxxxxxxx',
- 'x         x            xxxx  xxxx                 x',
- 'x         x             xxxxxxxx                  x',
- 'x         x              xxxxxx                   x',
- 'x      xxxxxx              xx                     x',
- 'x                                                 x',
- 'x                                                 x',
- 'x                                                 x',
- 'x      xxxxxx  x   x  xxxx  xxxxx  x     xxxxxxx  x',
- 'x         x    x   x  x  x    x    x     x        x',
- 'x         x    x   x  x x     x    x     xxxxx    x',
- 'x         x     xxx   x  x    x    x     x        x',
- 'x         x                        xxxxx xxxxx    x',
- 'x         x                                       x',
- 'x         x                                       x',
- 'x         x                                       x',
- 'x         x                                       x',
- 'x         xxxxxxxxxxxxxx      xxxxxxxxxxxxxxxxxxxxx',
- 'x         x            x      x                    ',
- 'x         x            x      x                    ',
- 'x         x            x      x           x        ',
- 'x         xxxxxxx      x      x           x       x',
- 'x         x                   x           x       x',
- 'x         x                   xxxxxxxxxxxxx       x',
- 'x         x                               x       x',
- 'x         x                               x       x',
- 'x       xxxxxxxxxxxxxxxx     xxxxxxxx     x       x',
- 'x       x                    x            x       x',
- 'x       x                    x            x       x',
- 'x       x                    x            x       x',
- 'x       x                    x            x       x',
- 'x       x      xxxxxxxxx     x            x       x',
- 'x                      x     x            x       x',
- 'x                      x     xxxxxxxxxxxxxx       x',
- 'x                      x                          x',
- 'x                      x                          x',
- 'x                      x                          x',
- 'xxxxxxxxxxxxxxxxxxxxxxxx     xxxxxxxxxxxxxxxxxxxxxx',
-];
-
-*/

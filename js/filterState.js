@@ -16,21 +16,27 @@ var imageState = {
   },
 
   update: function(){
-    //this.puzzle.checkSliderPosition(null);
+    this.puzzle.updateCounters();
+
+    //for(i = 0; i < this.puzzle.filters.length; i++){
+    //  this.puzzle.checkSliderPosition(i);
+    //}
+
+
   },
 
   toGame: function(){
-    var currentLevel = TA.getCurrentLevel();
-    console.log("fuckme");
-
-    if (currentLevel = 0) {
-      game.state.start('Level0');
-    }
-    else if (currentLevel == 1) {
-      game.state.start('Level1');
-    }
-    game.state.start('GameOver');
-    console.log('hello');
+    // var currentLevel = TA.getCurrentLevel();
+    // console.log("fuckme");
+    //
+    // if (currentLevel = 0) {
+    //   game.state.start('Level0');
+    // }
+    // else if (currentLevel == 1) {
+    //   game.state.start('Level1');
+    // }
+    // game.state.start('GameOver');
+    // console.log('hello');
   },
 
   setDialogue: function() {

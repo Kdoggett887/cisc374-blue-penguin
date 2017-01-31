@@ -5,7 +5,7 @@ function buildLevel(level) {
       // Create a wall and add it to the 'walls' group
       if (level[i][j] == 'x') {
         var wall = game.add.sprite(32+32*j, 32+32*i, 'wall');
-        wallGroup.add(wall);
+        TA.wallGroup.add(wall);
         wall.body.immovable = true;
       }
     }
