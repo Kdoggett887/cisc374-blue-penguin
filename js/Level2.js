@@ -11,10 +11,12 @@ var Level2 = {
 
     // Setup NPCs
     TA.level2.npc = new NPC(game.world.centerX/2 + 200, game.world.centerY/2 + 1300,game, 'npc', sonictalk);
-    TA.level2.turtleRed = new Turtle(game.world.centerX - 650, game.world.centerY + 400, game, 'turtle', sampleText, [[removeRedShader, "RED", 1],[grayscaleShader, "GREYSCALE", 0], [arithmeticAddShader,"ADD", 0]]);
-    TA.level2.turtleGreen = new Turtle(game.world.centerX + 400, game.world.centerY + 100, game, 'turtle', sampleText, [[removeGreenShader, "GREEN", 1]]);
-    TA.level2.turtleBlue = new Turtle(game.world.centerX - 650, game.world.centerY - 200, game, 'turtle', sampleText, [[removeBlueShader, "BLUE", 1]]);
-    TA.level2.turtleFinal = new Turtle(game.world.centerX, game.world.centerY - 800, game, 'turtle', sampleText, [[removeRedShader, "RED", 1], [removeGreenShader, "GREEN", 1], [removeBlueShader, "BLUE", 0]]);
+
+    TA.level2.turtleRed = new Turtle(game.world.centerX - 650, game.world.centerY + 400, game, 'turtle', level2RedText, [makeRed(1)]);
+    TA.level2.turtleGreen = new Turtle(game.world.centerX + 400, game.world.centerY + 100, game, 'turtle', sampleText, [makeGreen(1)]);
+    TA.level2.turtleBlue = new Turtle(game.world.centerX - 650, game.world.centerY - 200, game, 'turtle', sampleText, [makeBlue(1)]);
+    TA.level2.turtleFinal = new Turtle(game.world.centerX, game.world.centerY - 775, game, 'turtle', sampleText, [makeRed(1), makeGreen(1), makeBlue(0)]);
+
 
 
     var turtleList = [TA.level2.turtleRed, TA.level2.turtleGreen, TA.level2.turtleBlue, TA.level2.turtleFinal];
