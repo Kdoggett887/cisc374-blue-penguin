@@ -9,7 +9,7 @@ var Level2 = {
     game.add.tileSprite(0, 0, 1920, 1920, 'background');
     game.world.setBounds(0, 0, 1920, 1920);
     // Setup NPCs
-
+    TA.level2.npc = new NPC(game.world.centerX/2 + 200, game.world.centerY/2 + 1300,game, 'npc', sonictalk);
     TA.level2.turtleRed = new Turtle(game.world.centerX - 650, game.world.centerY + 400, game, 'turtle', sampleText, [[removeRedShader, "RED", 1],[grayscaleShader, "GREYSCALE", 0], [arithmeticAddShader,"ADD", 0]]);
     TA.level2.turtleGreen = new Turtle(game.world.centerX + 400, game.world.centerY + 100, game, 'turtle', sampleText, [[removeGreenShader, "GREEN", 1]]);
     TA.level2.turtleBlue = new Turtle(game.world.centerX - 650, game.world.centerY - 200, game, 'turtle', sampleText, [[removeBlueShader, "BLUE", 1]]);
