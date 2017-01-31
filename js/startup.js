@@ -1,7 +1,8 @@
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example');
 
 
-//declare Game object and other globals
+// Main object that holds most variables for the game and its Levels
+// TA stands for Turtle Adventure
 var TA = new function(){
   this.createDiaFlag = false;
   this.playerX;
@@ -13,15 +14,17 @@ var TA = new function(){
   this.turtleCount = 0;
 
 
+  // Put any variables that need to be reset here
   this.resetGlobals = function() {
     this.createDiaFlag = false;
     this.startingGame = true;
     this.currentTurtle = null;
     this.currentLevel = 0;
+    this.turtleCount = 0;
   }
 
 
-
+  // All variables for Level 0
   this.level0 = new function() {
     this.turtleGroup;
     this.fakeKiwi;
@@ -29,6 +32,7 @@ var TA = new function(){
     this.completedPuzzle = false;
     this.startingLevel = true;
 
+    // Put any variables that need to be reset here
     this.reset = function() {
       this.startingLevel = true;
       this.completedPuzzle = false;
@@ -36,6 +40,7 @@ var TA = new function(){
 
   }
 
+  // All variables for Level 1
   this.level1 = new function() {
     this.turtleGroup;
     this.turtle1;
@@ -44,6 +49,7 @@ var TA = new function(){
     this.startingLevel = true;
     this.completedPuzzle = false;
 
+    // Put any variables that need to be reset here
     this.reset = function() {
       this.startingLevel = true;
       this.completedPuzzle = false;
@@ -51,6 +57,7 @@ var TA = new function(){
 
   }
 
+  // All variables for Level 2
   this.level2 = new function() {
     this.startingLevel = true;
     this.completedPuzzle = false;
@@ -59,20 +66,20 @@ var TA = new function(){
     this.turtleBlue;
     this.turtleFinal;
 
+    // Put any variables that need to be reset here
     this.reset = function() {
       this.startingLevel = true;
-      this.completedPuzzle = false;
     }
   }
 
+  // All variables for level 3
   this.level3 = new function() {
     this.startingLevel = true;
-    this.completedPuzzle = false;
     this.profpixel;
 
+    // Put any variables that need to be reset here
     this.reset = function() {
       this.startingLevel = true;
-      this.completedPuzzle = false;
     }
   }
 
@@ -113,6 +120,7 @@ var TA = new function(){
     }
   }
 
+  // Sets visibility for each turtle based on how many turtles have been found
   this.setTurtleVisibility = function(turtleList) {
     for (var i = 0; i < turtleList.length; i++) {
       if (i == this.turtleCount) {
@@ -125,10 +133,7 @@ var TA = new function(){
 
 
 //----------VARIABLES ---------------------//
-var w = 800; // game width
-var spacebar;
 
-var player;
 
 // content = ['hello darkness my old friend', "zz zzz zzzz zzzz zzz zzz z z z z z z z z z z zz zzzz zzzz zzzz zzzz zzzzz", 'you found a key', "orange peels"];
 
@@ -149,20 +154,22 @@ var level1AddText = ['This add filter will brighten picture. Match the images!']
 var level0GrayText = ['This gray filter will change the color pixels in to values in grayscale. Match the images! Hint: Adding Greyscale more than once will not change the picture.']
 
 
-
+// Problems putting player variable in TA object
+var player;
 var music;
 var mute_label;
 var currentDialogue;
 var dialogueTimer = false;
 
 
+// Reset all TA variables if needed
 function resetAll() {
   TA.resetGlobals();
   TA.level0.reset();
   TA.level1.reset();
 }
 
-
+// Necessary to make walls collidable but does not need any function
 function wallCollision (obj1, obj2) {
   //console.log('wall hit');
 }
@@ -231,7 +238,7 @@ var stateChangeCollision = function(obj1, obj2){
     game.state.start('Image');
 }
 
-
+// Handles removing the dialogue box if double tapped
 function onTap(pointer, doubleTap) {
    if (doubleTap)
    {
@@ -243,7 +250,9 @@ function onTap(pointer, doubleTap) {
    }
 }
 
-
+// General code that is used in the update for each level. This should be in
+// the update function for each level unless different functionality for
+// the player desired
 function setupUpdate() {
   player.body.velocity.setTo(0, 0);
   player.body.angularVelocity = 0;
