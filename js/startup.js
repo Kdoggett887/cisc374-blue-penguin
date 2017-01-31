@@ -148,9 +148,9 @@ var sampleText = ['This is sample text that will be replaced', 'by the real text
 var profpixeltalk = ['Oh no! You figured out my secret image forumulas! You better not take my last turtles!'];
 
 
+var level0GrayText = ['Are you sure this is the turtle you are looking for? The missing turtle poster looks a litle different. Better make sure the images match! Lets see if it has been filtered somehow. This gray filter will change the color pixels in to values in grayscale. Press complete when the images match. Hint: Adding Greyscale more than once will not change the picture.']
 
-var level0GrayText = ['This gray filter will change the color pixels in to values in grayscale. Match the images! Hint: Adding Greyscale more than once will not change the picture.']
-var level1AddText = ['You found a turtle! This add (arithmetic add) filter will brighten picture. Match the images!'];
+var level1AddText = ['You found another turtle! But the missing turtle poster still looks a litle different. Better make sure the images match! Lets see if it has been filtered somehow. This add (arithmetic add) filter will brighten picture. Match the images!'];
 var level1SubText = ['You found a turtle! This sub (arithmetic subtration) filter will darken picture. Match the images!'];
 var level1MultiText = ['Another turtle! Use the sub, add, and gray filters in combination to match the image!'];
 var level2RedText = ['This red filter will REMOVE the red in this picture. Match the images!'];
