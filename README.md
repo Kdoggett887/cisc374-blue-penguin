@@ -45,9 +45,9 @@ More information can be found at [https://cordova.apache.org/](https://cordova.a
   *Sliders
 
 ## Future Plans
-  *Sliders for changing filters
-  *Additional levels
-  *More in-depth story
+  *Sliders for changing filters  
+  *Additional levels  
+  *More in-depth story  
 
 ## Project Sources 
   Kiwi base for detective_intro.png - https://commons.wikimedia.org/wiki/File:TeTuatahianui.jpg  
