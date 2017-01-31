@@ -13,6 +13,8 @@ var imageState = {
 
     this.setDialogue();
 
+    addUI();//mute and retart etc.
+
   },
 
   update: function(){

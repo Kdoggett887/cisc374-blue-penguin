@@ -1,5 +1,6 @@
 var Level1 = {
   create: function(){
+
     console.log("level 1");
 
     music = game.add.audio('noir1');
@@ -15,14 +16,9 @@ var Level1 = {
     TA.level1.turtle2 = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 700, game, 'turtle', level1AddText, [[arithmeticAddShader,"ADD",1],[grayscaleShader,"GREYSCALE",0]]);
     TA.level1.turtle3 = new Turtle(game.world.centerX/2 + 400, game.world.centerY/2 + 600, game, 'turtle', sampleText, [[arithmeticAddShader,"ADD",1], [grayscaleShader, "GREYSCALE",1]]);
 
+
     var turtleList = [TA.level1.turtle1, TA.level1.turtle2, TA.level1.turtle3];
     TA.setTurtleVisibility(turtleList);
-
-    //TA.level1.turtleGroup = game.add.physicsGroup();
-    //TA.level1.turtleGroup.add(turtleBlur2);
-    //TA.level1.turtleGroup.add(turtleBlur3);
-    //TA.level1.turtleGroup.add(turtleBlur);
-
 
     // Setup Player
     if(TA.level1.startingLevel){
@@ -48,6 +44,7 @@ var Level1 = {
     // Builds the level using a layout
     TA.wallGroup = game.add.physicsGroup();
     buildLevel(Levels.level1);
+    addUI();//mute and retart etc.
 
   },
 
@@ -69,10 +66,6 @@ var Level1 = {
       game.physics.arcade.collide(player, TA.level1.turtle3, stateChangeCollision, null, this);
 
   },
-
-  turtlecalling: function(obj1, obj2){
-    console.log(obj2.shaderList);
-  }
 
 
 

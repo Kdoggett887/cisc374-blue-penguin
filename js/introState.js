@@ -31,8 +31,8 @@ var introState = {
     completedPuzzle1 = false;
     foundPerson = false;
     game.state.start("Level0");
-    // TA.currentLevel = 2
-    // game.state.start("Level2");
+    // TA.currentLevel = 3;
+    // game.state.start("Level3");
 
   },
 

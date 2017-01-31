@@ -13,6 +13,13 @@ var Level3 = {
     TA.level3.profpixel = new NPC(200, 100, game, 'profpixel', profpixeltalk);
 
 
+    TA.level3.turtleBlur = new Turtle(game.world.centerX - 100, game.world.centerY, game, 'turtle', level2RedText, [makeBlur(1)]);
+    TA.level3.turtle1 = new Turtle(game.world.centerX - 550, game.world.centerY + 250, game, 'turtle', sampleText, [makeGreen(0), makeBlur(2), makeBlue(1)]);
+    TA.level3.turtle2 = new Turtle(game.world.centerX - 750, game.world.centerY, game, 'turtle', sampleText, [makeBlue(0), makeRed(1), makeSub(2)]);
+    TA.level3.turtle3 = new Turtle(game.world.centerX - 700, game.world.centerY - 800, game, 'turtle', sampleText, [makeGrayscale(1), makeAdd(1), makeBlur(0)]);
+
+    var turtleList = [TA.level2.turtleBlur, TA.level2.turtle1, TA.level2.turtle2, TA.level2.turtle3];
+    TA.setTurtleVisibility(turtleList);
 
     // Setup Player
     if(TA.level3.startingLevel){
@@ -38,6 +45,7 @@ var Level3 = {
     // Builds the level using a layout
     TA.wallGroup = game.add.physicsGroup();
     buildLevel(Levels.level3);
+    addUI();//mute and retart etc.
 
   },
 
