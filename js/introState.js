@@ -30,7 +30,7 @@ var introState = {
     solvedTurtle = false;
     completedPuzzle1 = false;
     foundPerson = false;
-    game.state.start("Level1");
+    game.state.start("Level0");
     // TA.currentLevel = 3;
     // game.state.start("Level3");
 
@@ -43,7 +43,7 @@ var introState = {
       // game.state.start("Main");
 
       game.state.start("Level0");
-      currentLevel = 2;
+      //currentLevel = 2;
 
     }
     else{
