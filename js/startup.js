@@ -117,6 +117,19 @@ var TA = new function(){
         game.state.start('Level2');
       }
     }
+    else if (this.currentLevel == 3) {
+      if (this.turtleCount == 5) {
+        // Should never reach this state
+        // End villain should end the game
+        this.turtleCount = 0;
+        this.currentLevel = 4;
+        // game.state.start('Level4');
+        game.state.start('GameOver');
+      }
+      else {
+        game.state.start('Level3');
+      }
+    }
   }
 
   // Sets visibility for each turtle based on how many turtles have been found
@@ -161,10 +174,6 @@ var level3BlurText = ['This blur filter will blur the image of the turtle by usi
 var level3Turtle1 = ['Another turtle?? This guy likes turtles.'];
 var level3Turtle2 = ['[Save Me!] says the turtle.'];
 var level3Turtle3 = ['Another day, another turtle.'];
-
-var level1npcTalk = ['Oh! Detective KJ! I heard you are pretty good at finding turtles. Have you seen mine? I have some photos, but that evil Professor Pixel made their RGB values greater or less than they should be. Here, maybe you can make sense of them...'];
-var level2npcTalk = ['Detective KJ, thank goodness! Professor Pixel just ran through here and stole a WHOLE COLOR from my turtle photos! How will I find my turtles now??'];
-var level3npcTalk = ['I think I saw Professor Pixel around here somewhere.. please, Detective, you gotta catch him!'];
 
 // Problems putting player variable in TA object
 var player;
