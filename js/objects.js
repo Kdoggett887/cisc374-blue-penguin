@@ -1,7 +1,7 @@
 
 
 Turtle = function(x, y, game, sprite, dialogue, shaderList){ //turtle object: contains the filter explanations and list of filters/shaders that appear during the filter state after colliding with a turtle
-  Phaser.Sprite.call(this, game, x, y, sprite);
+  Phaser.Sprite.call(this, game, x, y, sprite); // extends a phaser sprite object
 
   this.shaderList = shaderList; //note format: [[shaderObject, filterStringName, numPasses], [....]]
   this.dialogue = dialogue;
@@ -9,14 +9,8 @@ Turtle = function(x, y, game, sprite, dialogue, shaderList){ //turtle object: co
   this.enableBody = true;
   this.body.immovable = true;
   //this.body.moves = false;
-  game.add.existing(this);
+  game.add.existing(this); //adds turtle
 
-  this.hitTurtle = function(){
-    this.destroy();
-  }
-  this.removeTurtle = function(){//delete later
-    this.destroy();
-  }
 
 }
 
@@ -34,6 +28,8 @@ var sayDialogue = function(dialogue){
 
 
 // =======
+// These are efforts to add a buffer for hitting NPCs so the dialogue box doesn't keep popping up.
+
   // if(dialogueTimer == false){
   //   if(!currentDialogue){
   //     currentDialogue = new DialogueBox(game.camera.width/2, game.camera.height/2, person.dialogue);
@@ -74,21 +70,3 @@ NPC = function(x, y, game, sprite, dialogue){
 
 NPC.prototype = Object.create(Phaser.Sprite.prototype);
 NPC.prototype.constructor = NPC;
-
-
-
-//not used NOT USING THIS RIGHT NOW OK
-Wall = function(x, y, height, width){
-//this.sprite = game.add.sprite(200, 240, 'wall');
-Phaser.Sprite.call(this, 200, 240, 'wall');
-//game.physics.enable([this], Phaser.Physics.ARCADE);
-//this.body.immovable = true;
-
-}
-
-Wall.prototype = Object.create(Phaser.Sprite.prototype);
-Wall.prototype.constructor = Wall;
-
-Wall.prototype.update = function() {
-    //console.log('woupd');
-};
