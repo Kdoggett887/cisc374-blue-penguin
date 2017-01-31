@@ -14,8 +14,8 @@ var Level2 = {
 
     TA.level2.turtleRed = new Turtle(game.world.centerX - 650, game.world.centerY + 400, game, 'turtle', level2RedText, [makeRed(1)]);
     TA.level2.turtleGreen = new Turtle(game.world.centerX - 500, game.world.centerY - 200, game, 'turtle', level2GreenText, [makeGreen(1)]);
-    TA.level2.turtleBlue = new Turtle(game.world.centerX - 550, game.world.centerY - 300, game, 'turtle', level2BlueText, [makeBlue(1)]);
-    TA.level2.turtleFinal = new Turtle(game.world.centerX, game.world.centerY - 775, game, 'turtle', sampleText, [makeRed(1), makeGreen(1), makeBlue(0)]);
+    TA.level2.turtleBlue = new Turtle(game.world.centerX - 550, game.world.centerY - 500, game, 'turtle', level2BlueText, [makeBlue(1)]);
+    TA.level2.turtleFinal = new Turtle(game.world.centerX, game.world.centerY - 775, game, 'turtle', level2MultiText, [makeRed(1), makeGreen(1), makeBlue(0)]);
 
 
 
@@ -66,7 +66,14 @@ var Level2 = {
     game.physics.arcade.collide(player, TA.level2.turtleGreen, stateChangeCollision, null, this);
     game.physics.arcade.collide(player, TA.level2.turtleBlue, stateChangeCollision, null, this);
     game.physics.arcade.collide(player, TA.level2.turtleFinal, stateChangeCollision, null, this);
+    game.physics.arcade.collide(player, TA.level2.npc, this.firstPersonCollision, null, this);
 
+  },
+
+  // Collision handler for the npc
+  firstPersonCollision: function(obj1, obj2) {
+    npcCollision(obj1, obj2);
+    //TA.level0.turtle.visible = true;
   }
 
 }

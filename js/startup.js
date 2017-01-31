@@ -148,14 +148,19 @@ var sampleText = ['This is sample text that will be replaced', 'by the real text
 var profpixeltalk = ['Oh no! You figured out my secret image forumulas! You better not take my last turtles!'];
 
 
-var level0GrayText = ['Are you sure this is the turtle you are looking for? The missing turtle poster looks a litle different. Better make sure the images match! Lets see if it has been filtered somehow. This gray filter will change the color pixels in to values in grayscale. Press complete when the images match. Hint: Adding Greyscale more than once will not change the picture.']
 
-var level1AddText = ['You found another turtle! But the missing turtle poster still looks a litle different. Better make sure the images match! Lets see if it has been filtered somehow. This add (arithmetic add) filter will brighten picture. Match the images!'];
+var level0GrayText = ['This gray filter will change the color pixels in to values in grayscale. Match the images! Hint: Adding Greyscale more than once will not change the picture.']
+var level1AddText = ['You found a turtle! This add (arithmetic add) filter will brighten picture. Match the images!'];
 var level1SubText = ['You found a turtle! This sub (arithmetic subtration) filter will darken picture. Match the images!'];
 var level1MultiText = ['Another turtle! Use the sub, add, and gray filters in combination to match the image!'];
 var level2RedText = ['This red filter will REMOVE the red in this picture. Match the images!'];
 var level2GreenText = ['This green filter will REMOVE the green in this picture. Match the images!'];
 var level2BlueText = ['This blue filter will REMOVE the blue in this picture. Match the images!'];
+var level2MultiText = ['Use the red, blue, green removal filters to match the image!'];
+var level3BlurText = ['This blur filter will blur the image of the turtle by using surroundng pixels in the image.'];
+var level3Turtle1 = ['Another turtle?? This guy likes turtles.'];
+var level3Turtle2 = ['[Save Me!] says the turtle.'];
+var level3Turtle3 = ['Another day, another turtle.'];
 
 var level1npcTalk = ['Oh! Detective KJ! I heard you are pretty good at finding turtles. Have you seen mine? I have some photos, but that evil Professor Pixel made their RGB values greater or less than they should be. Here, maybe you can make sense of them...'];
 var level2npcTalk = ['Detective KJ, thank goodness! Professor Pixel just ran through here and stole a WHOLE COLOR from my turtle photos! How will I find my turtles now??'];

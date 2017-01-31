@@ -65,8 +65,14 @@ var Level1 = {
       game.physics.arcade.collide(player, TA.level1.turtle1, stateChangeCollision, null, this);
       game.physics.arcade.collide(player, TA.level1.turtle2, stateChangeCollision, null, this);
       game.physics.arcade.collide(player, TA.level1.turtle3, stateChangeCollision, null, this);
+      game.physics.arcade.collide(player, TA.level1.npc, this.firstPersonCollision, null, this);
 
   },
+  // Collision handler for the npc
+  firstPersonCollision: function(obj1, obj2) {
+    npcCollision(obj1, obj2);
+    //TA.level0.turtle.visible = true;
+  }
 
 
 
