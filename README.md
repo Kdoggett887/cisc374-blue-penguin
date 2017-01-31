@@ -48,9 +48,9 @@ Open the 'index.html' file in your web browser
   *Sobel filter (works but unused)
 
 ## Future Plans
-  *Sliders for changing filters
-  *Additional levels
-  *More in-depth story
+  *Sliders for changing filters  
+  *Additional levels  
+  *More in-depth story  
 
 ## Project Sources
   Kiwi base for detective_intro.png - https://commons.wikimedia.org/wiki/File:TeTuatahianui.jpg  

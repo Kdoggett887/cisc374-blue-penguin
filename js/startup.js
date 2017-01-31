@@ -139,7 +139,7 @@ var TA = new function(){
 
 var intro = ['It has been 10 years since you lost Powder, your pet turtle. Recently a string of turtle disappearances have occurred. You have gotten a lead that there have been some turtle sightings at the Professor Pixel mansion. Unfortunately all the wanted pictures of missing turtles are distorted. It is up to you to match the turtles you find to their rightful owners.'];
 
-var intro2 = ['It has been 10 years since you have lost Powder, your pet turtle.', "Recently a string of turdle disappearances have occured.", 'You have gotten a lead that there have been some turtle sightings at the Professor Pixel mansion.', "Unfortunetly all the wanted pictures of missing turtles are all distorted.", 'It is up to you to match the turtles you find to their rightful owners'];
+var intro2 = ['It has been 10 years since you have lost Powder, your pet turtle.', "Recently a string of turdle disappearances have occured.", 'You have gotten a lead that there have been some turtle sightings at the Professor Pixel mansion.', "Unfortunetly all the wanted pictures of missing turtles are distorted.", 'It is up to you to match the turtles you find to their rightful owners'];
 
 var sonictalk = ['HEY! Have you seen my missing turtle? I have not seen him in a week. Everyone I know has lost their turtles. Unfortunately all of the pictures in the missing turtle posters are messed up by some evil force. Hm, here are a lot of turtles in this place. Take some missing turtle flyers.', ' Tap twice to exit speech.'];
 
