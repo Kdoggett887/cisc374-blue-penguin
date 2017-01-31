@@ -38,6 +38,7 @@ var Level3 = {
     // Builds the level using a layout
     TA.wallGroup = game.add.physicsGroup();
     buildLevel(Levels.level3);
+    addUI();//mute and retart etc.
 
   },
 

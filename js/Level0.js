@@ -1,6 +1,7 @@
 var Level0 = {
 
   create: function(){
+
     console.log("level 0");
 
     music = game.add.audio('noir1');
@@ -41,6 +42,7 @@ var Level0 = {
     // Builds the level using a layout
     TA.wallGroup = game.add.physicsGroup();
     buildLevel(Levels.level0);
+    addUI();//mute and retart etc.
 
   },
 

@@ -1,26 +1,33 @@
 //--- START/RESTART
 
-restart_label = game.add.text(w - 100, 20, 'Restart', { font: '24px Arial', fill: '#fff' });
+var addUI = function(){
+
+
+
+var restart_label = game.add.text(game.camera.width - 100, 15, 'Restart', { font: '20px Arial', fill: '#fff', align: 'right'});
 restart_label.inputEnabled = true;
+console.log(restart_label);
 
 restart_label.events.onInputUp.add(function () {
-   // When the paus button is pressed, we pause the game
-   //game.paused = true;
    startingGame = true;
-   this.game.state.start("Main");
-
-   // Then add the menu
-  // menu = game.add.sprite(w/2, h/2, 'menu');
-  // menu.anchor.setTo(0.5, 0.5);
-
-
+   solvedTurtle = false;
+   completedPuzzle1 = false;
+   foundPerson = false;
+   TA.currentLevel = 0;
+   TA.level0.reset();
+   TA.level1.reset();
+   TA.level2.reset();
+   TA.level3.reset();
+   //game.state.start('GameTitle');
+   game.state.start("Intro");
 });
 
 
 restart_label.fixedToCamera = true;
+console.log(game.camera.width);
 
 //MUTE BUTTON LABEL
-mute_label = game.add.text(w - 100, 40, 'Mute', { font: '20px Arial', fill: '#fff' });
+var mute_label = game.add.text(game.camera.width - 100, 40, 'Mute', { font: '20px Arial', fill: '#fff', align: 'left'});
  mute_label.inputEnabled = true;
  mute_label.fixedToCamera = true;
 
@@ -33,3 +40,5 @@ mute_label.events.onInputUp.add(function () {
     }
      //game.input.onDown.add(changeVolume, this);
 });
+
+}

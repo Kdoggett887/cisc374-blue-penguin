@@ -45,6 +45,7 @@ var Level2 = {
     // Builds the level using a layout
     wallGroup = game.add.physicsGroup();
     buildLevel(Levels.level2);
+    addUI();//mute and retart etc.
 
   },
 
